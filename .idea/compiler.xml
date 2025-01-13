@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="continew-common" />
+        <module name="continew-webapi" />
+        <module name="continew-plugin-generator" />
+        <module name="continew-plugin-open" />
+        <module name="continew-plugin-schedule" />
+        <module name="continew-extension-schedule-server" />
+        <module name="continew-module-system" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="continew-admin" target="1.8" />
+      <module name="continew-common" target="16" />
+      <module name="continew-extension" target="1.8" />
+      <module name="continew-extension-schedule-server" target="15" />
+      <module name="continew-module-system" target="16" />
+      <module name="continew-plugin" target="1.8" />
+      <module name="continew-plugin-generator" target="16" />
+      <module name="continew-plugin-open" target="14" />
+      <module name="continew-plugin-schedule" target="15" />
+      <module name="continew-webapi" target="16" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="continew-admin" options="-parameters" />
+      <module name="continew-common" options="-parameters" />
+      <module name="continew-extension" options="-parameters" />
+      <module name="continew-extension-schedule-server" options="-parameters" />
+      <module name="continew-module-system" options="-parameters" />
+      <module name="continew-plugin" options="-parameters" />
+      <module name="continew-plugin-generator" options="-parameters" />
+      <module name="continew-plugin-open" options="-parameters" />
+      <module name="continew-plugin-schedule" options="-parameters" />
+      <module name="continew-webapi" options="-parameters" />
+    </option>
+  </component>
+</project>

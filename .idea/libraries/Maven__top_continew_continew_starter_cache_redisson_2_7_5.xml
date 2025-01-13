@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: top.continew:continew-starter-cache-redisson:2.7.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../DevelopmentFiles/config/maven/repository/top/continew/continew-starter-cache-redisson/2.7.5/continew-starter-cache-redisson-2.7.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../DevelopmentFiles/config/maven/repository/top/continew/continew-starter-cache-redisson/2.7.5/continew-starter-cache-redisson-2.7.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../DevelopmentFiles/config/maven/repository/top/continew/continew-starter-cache-redisson/2.7.5/continew-starter-cache-redisson-2.7.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

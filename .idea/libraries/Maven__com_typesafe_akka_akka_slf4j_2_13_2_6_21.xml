@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.typesafe.akka:akka-slf4j_2.13:2.6.21">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../DevelopmentFiles/config/maven/repository/com/typesafe/akka/akka-slf4j_2.13/2.6.21/akka-slf4j_2.13-2.6.21.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../DevelopmentFiles/config/maven/repository/com/typesafe/akka/akka-slf4j_2.13/2.6.21/akka-slf4j_2.13-2.6.21-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../DevelopmentFiles/config/maven/repository/com/typesafe/akka/akka-slf4j_2.13/2.6.21/akka-slf4j_2.13-2.6.21-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
