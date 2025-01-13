@@ -70,7 +70,7 @@ public class AuthController {
 
     @SaIgnore
     @Operation(summary = "账号登录", description = "根据账号和密码进行登录认证")
-    @PostMapping("/account")
+    @PostMapping("/login")
     public LoginResp accountLogin(@Validated @RequestBody AccountLoginReq loginReq, HttpServletRequest request) {
         // 校验验证码
         int loginCaptchaEnabled = optionService.getValueByCode2Int("LOGIN_CAPTCHA_ENABLED");
@@ -142,7 +142,7 @@ public class AuthController {
 
     @Log(ignore = true)
     @Operation(summary = "获取路由信息", description = "获取登录用户的路由信息")
-    @GetMapping("/route")
+    @GetMapping("/user/route")
     public List<RouteResp> listRoute() {
         return loginService.buildRouteTree(UserContextHolder.getUserId());
     }
