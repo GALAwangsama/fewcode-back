@@ -1,12 +1,14 @@
 --- ### 项目配置
 project:
   # URL（跨域配置默认放行此 URL，第三方登录回调默认使用此 URL 为前缀，请注意更改为你实际的前端 URL）
+  #TODO 配置生产环境跨域访问
   url: '*'
   # 是否为生产环境
   production: true
 
 --- ### 服务器配置
 server:
+  #TODO 修改测试端口
   # HTTP 端口（默认 8080）
   port: 20070
 
@@ -262,6 +264,7 @@ spring.servlet:
 avatar:
   support-suffix: jpg,jpeg,png,gif
 
+#TODO 删除任务调度配置
 --- ### Snail Job 配置
 snail-job:
   # 客户端地址（默认自动获取本机 IP）

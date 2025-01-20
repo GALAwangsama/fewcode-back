@@ -58,6 +58,7 @@ services:
       REDIS_PORT: 7789
 #      REDIS_PWD: 你的 Redis 密码
       REDIS_DB: 0
+      #TODO 删除任务调度接口
       SCHEDULE_HOST: 47.100.198.147
       SCHEDULE_PORT: 1788
 #      SCHEDULE_TOKEN: 任务调度服务端 Token
@@ -73,6 +74,7 @@ services:
       - redis
       - mysql
 
+#TODO 删除任务调度镜像
   schedule-server:
     build: ./schedule-server
     restart: always
@@ -89,5 +91,6 @@ services:
       DB_NAME: continew_admin_job
     volumes:
       - /docker/schedule-server/logs/:/app/logs/
+      - /docker/schedule-server/continew-extension-schedule-server.jar:/app/bin/app.jar
     depends_on:
       - mysql

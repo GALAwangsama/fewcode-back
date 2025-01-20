@@ -96,6 +96,7 @@ springdoc:
     - group: monitor
       display-name: 系统监控
       packages-to-scan: ${project.base-package}.controller.monitor
+      #TODO 任务调度配置
     - group: schedule
       display-name: 任务调度
       packages-to-scan: ${project.base-package}.controller.schedule
@@ -271,6 +272,7 @@ spring:
         await-termination: true
         # 等待时间
         await-termination-period: 30s
+      #TODO 删除任务调度配置
     # 定时任务
     scheduling:
       thread-name-prefix: schedule-pool

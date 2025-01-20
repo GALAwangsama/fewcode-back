@@ -2,6 +2,11 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="huawei-mirror" />
       <option name="name" value="HuaweiCloud Mirror" />
       <option name="url" value="https://mirrors.huaweicloud.com/repository/maven/" />
