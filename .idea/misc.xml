@@ -8,6 +8,13 @@
         <option value="$PROJECT_DIR$/continew-admin-v3.4.1/continew-test/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/continew-admin-v3.4.1/continew-extension/continew-extension-schedule-server/pom.xml" />
+        <option value="$PROJECT_DIR$/continew-admin-v3.4.1/continew-extension/pom.xml" />
+        <option value="$PROJECT_DIR$/continew-admin-v3.4.1/continew-plugin/continew-plugin-schedule/pom.xml" />
+      </set>
+    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17" project-jdk-type="JavaSDK" />
 </project>

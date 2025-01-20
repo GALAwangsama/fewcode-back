@@ -11,10 +11,9 @@
 
     <artifactId>continew-plugin</artifactId>
     <packaging>pom</packaging>
-    <description>插件模块（存放代码生成、任务调度等扩展模块）</description>
+    <description>插件模块（存放代码生成、能力开放等扩展模块）</description>
 
     <modules>
-        <module>continew-plugin-schedule</module>
         <module>continew-plugin-open</module>
         <module>continew-plugin-generator</module>
     </modules>

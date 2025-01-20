@@ -28,7 +28,6 @@
         <module>continew-module-system</module>
         <module>continew-plugin</module>
         <module>continew-common</module>
-        <module>continew-extension</module>
     </modules>
 
     <properties>
@@ -43,7 +42,7 @@
             <dependency>
                 <groupId>top.continew</groupId>
                 <artifactId>continew-webapi</artifactId>
-                <version>${revision}</version>
+                <version>3.4.1</version>
             </dependency>
 
             <!-- 系统管理模块（存放系统管理模块相关功能，例如：部门管理、角色管理、用户管理等） -->
@@ -60,12 +59,7 @@
                 <version>${revision}</version>
             </dependency>
 
-            <!-- 任务调度插件（后续会改造为独立插件） -->
-            <dependency>
-                <groupId>top.continew</groupId>
-                <artifactId>continew-plugin-schedule</artifactId>
-                <version>${revision}</version>
-            </dependency>
+
 
             <!-- 能力开放插件（后续会改造为独立插件） -->
             <dependency>

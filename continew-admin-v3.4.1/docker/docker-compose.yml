@@ -3,9 +3,9 @@ services:
   mysql:
     image: mysql:8.0.27
     restart: always
-    container_name: fcmysql
+    container_name: fcnmysql
     ports:
-      - '20072:4406'
+      - '20082:4406'
     environment:
       TZ: Asia/Shanghai
       MYSQL_ROOT_PASSWORD: tyut123456
@@ -35,18 +35,18 @@ services:
   redis:
     image: redis:6
     restart: always
-    container_name: fcredis
+    container_name: fcnredis
     ports:
-      - '20073:7789'
+      - '20083:7789'
     environment:
       TZ: Asia/Shanghai
   continew-admin-server:
     build: ./continew-admin
     restart: always
-    container_name: continew-admin-server
+    container_name: continew-admin-server-lastest
     ports:
-      - '20070:20070'
-      - '20075:1789'
+      - '20080:20080'
+
     environment:
       TZ: Asia/Shanghai
       DB_HOST: 47.100.198.147
@@ -57,11 +57,8 @@ services:
       REDIS_HOST: 47.100.198.147
       REDIS_PORT: 7789
 #      REDIS_PWD: 你的 Redis 密码
-      REDIS_DB: 0
-      #TODO 删除任务调度接口
-      SCHEDULE_HOST: 47.100.198.147
-      SCHEDULE_PORT: 1788
-#      SCHEDULE_TOKEN: 任务调度服务端 Token
+      REDIS_DB: 3
+
 
     volumes:
 #      - /docker/continew-admin/config/:/app/config/
@@ -74,23 +71,4 @@ services:
       - redis
       - mysql
 
-#TODO 删除任务调度镜像
-  schedule-server:
-    build: ./schedule-server
-    restart: always
-    container_name: continew-admin-schedule-server
-    ports:
-      - '20071:20071'
-      - '20074:1788'
-    environment:
-      TZ: Asia/Shanghai
-      DB_HOST: 47.100.198.147
-      DB_PORT: 4406
-      DB_USER: root
-      DB_PWD: tyut123456
-      DB_NAME: continew_admin_job
-    volumes:
-      - /docker/schedule-server/logs/:/app/logs/
-      - /docker/schedule-server/continew-extension-schedule-server.jar:/app/bin/app.jar
-    depends_on:
-      - mysql
+

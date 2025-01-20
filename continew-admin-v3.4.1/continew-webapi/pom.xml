@@ -38,11 +38,7 @@
             <artifactId>continew-module-system</artifactId>
         </dependency>
 
-        <!-- 任务调度插件（后续会改造为独立插件） -->
-        <dependency>
-            <groupId>top.continew</groupId>
-            <artifactId>continew-plugin-schedule</artifactId>
-        </dependency>
+
 
         <!-- 能力开放插件（后续会改造为独立插件） -->
         <dependency>

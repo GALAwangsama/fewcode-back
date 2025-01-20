@@ -12,11 +12,14 @@
         <module name="continew-webapi" />
         <module name="continew-plugin-generator" />
         <module name="continew-plugin-open" />
-        <module name="continew-plugin-schedule" />
-        <module name="continew-extension-schedule-server" />
         <module name="continew-module-system" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="continew-extension" target="17" />
+      <module name="continew-extension-schedule-server" target="15" />
+      <module name="continew-plugin-schedule" target="15" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
