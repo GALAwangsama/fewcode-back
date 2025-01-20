@@ -1,8 +1,8 @@
 FROM openjdk:17
 
-MAINTAINER Charles7c charles7c@126.com
+MAINTAINER fufu 1714229760.@qq.com
 
-ARG JAR_FILE=./bin/*.jar
+ARG JAR_FILE=*.jar
 COPY ${JAR_FILE} /app/bin/app.jar
 WORKDIR /app/bin
 

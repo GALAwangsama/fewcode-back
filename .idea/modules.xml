@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-admin.iml" filepath="$PROJECT_DIR$/continew-admin-v3.4.1/continew-admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/continew-admin-v3.4.1.iml" filepath="$PROJECT_DIR$/.idea/continew-admin-v3.4.1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-common/continew-common.iml" filepath="$PROJECT_DIR$/continew-admin-v3.4.1/continew-common/continew-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-extension/continew-extension.iml" filepath="$PROJECT_DIR$/continew-admin-v3.4.1/continew-extension/continew-extension.iml" />
-      <module fileurl="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-extension/continew-extension-schedule-server/continew-extension-schedule-server.iml" filepath="$PROJECT_DIR$/continew-admin-v3.4.1/continew-extension/continew-extension-schedule-server/continew-extension-schedule-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-module-system/continew-module-system.iml" filepath="$PROJECT_DIR$/continew-admin-v3.4.1/continew-module-system/continew-module-system.iml" />
-      <module fileurl="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-plugin/continew-plugin.iml" filepath="$PROJECT_DIR$/continew-admin-v3.4.1/continew-plugin/continew-plugin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-plugin/continew-plugin-generator/continew-plugin-generator.iml" filepath="$PROJECT_DIR$/continew-admin-v3.4.1/continew-plugin/continew-plugin-generator/continew-plugin-generator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-plugin/continew-plugin-open/continew-plugin-open.iml" filepath="$PROJECT_DIR$/continew-admin-v3.4.1/continew-plugin/continew-plugin-open/continew-plugin-open.iml" />
-      <module fileurl="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-plugin/continew-plugin-schedule/continew-plugin-schedule.iml" filepath="$PROJECT_DIR$/continew-admin-v3.4.1/continew-plugin/continew-plugin-schedule/continew-plugin-schedule.iml" />
-      <module fileurl="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-webapi/continew-webapi.iml" filepath="$PROJECT_DIR$/continew-admin-v3.4.1/continew-webapi/continew-webapi.iml" />
     </modules>
   </component>
 </project>

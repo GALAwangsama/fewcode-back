@@ -39,6 +39,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- 指定启动类 -->
+                    <mainClass>top.continew.admin.extension.scheduling.ScheduleServerApplication</mainClass>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
