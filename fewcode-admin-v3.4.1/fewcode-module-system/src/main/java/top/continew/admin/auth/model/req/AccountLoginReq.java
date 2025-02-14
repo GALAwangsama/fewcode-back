@@ -26,7 +26,7 @@ import java.io.Serializable;
 /**
  * 账号登录参数
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/21 20:43
  */
 @Data

@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
 /**
  * 加密/解密工具类
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/21 21:41
  */
 public class SecureUtils {

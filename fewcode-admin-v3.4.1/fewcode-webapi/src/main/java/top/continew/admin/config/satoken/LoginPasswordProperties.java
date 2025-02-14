@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 /**
  * 密码配置属性
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2024/6/15 22:15
  */
 @Data

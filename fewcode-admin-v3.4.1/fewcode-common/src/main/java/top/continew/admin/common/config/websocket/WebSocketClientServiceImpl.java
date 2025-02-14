@@ -26,7 +26,7 @@ import top.continew.starter.messaging.websocket.core.WebSocketClientService;
 /**
  * 当前登录用户 Provider
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2024/6/4 22:13
  */
 @Component

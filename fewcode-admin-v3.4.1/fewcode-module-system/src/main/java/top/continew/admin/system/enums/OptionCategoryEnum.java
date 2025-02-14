@@ -19,7 +19,7 @@ package top.continew.admin.system.enums;
 /**
  * 参数类别枚举
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2024/11/14 20:00
  */
 public enum OptionCategoryEnum {

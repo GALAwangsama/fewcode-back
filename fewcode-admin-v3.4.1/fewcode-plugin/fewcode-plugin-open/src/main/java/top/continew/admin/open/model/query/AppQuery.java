@@ -28,7 +28,7 @@ import java.io.Serializable;
  * 应用查询条件
  *
  * @author chengzi
- * @author Charles7c
+ * @author GALAwang
  * @since 2024/10/17 16:03
  */
 @Data

@@ -41,7 +41,7 @@ import java.util.List;
 /**
  * Sa-Token 配置
  *
- * @author Charles7c
+ * @author GALAwang
  * @author chengzi
  * @since 2022/12/19 22:13
  */

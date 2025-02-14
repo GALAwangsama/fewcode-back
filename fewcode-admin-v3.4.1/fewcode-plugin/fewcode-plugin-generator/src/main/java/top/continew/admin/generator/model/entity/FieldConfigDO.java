@@ -39,7 +39,7 @@ import java.time.LocalDateTime;
 /**
  * 字段配置实体
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/4/12 20:21
  */
 @Data

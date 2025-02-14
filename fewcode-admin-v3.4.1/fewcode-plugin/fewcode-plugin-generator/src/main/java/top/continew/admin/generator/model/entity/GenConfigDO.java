@@ -36,7 +36,7 @@ import java.time.LocalDateTime;
 /**
  * 生成配置实体
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/4/12 20:21
  */
 @Data

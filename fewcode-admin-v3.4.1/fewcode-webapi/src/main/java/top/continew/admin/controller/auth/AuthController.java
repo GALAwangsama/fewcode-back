@@ -52,7 +52,7 @@ import java.util.List;
 /**
  * 认证 API
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/21 20:37
  */
 @Log(module = "登录")

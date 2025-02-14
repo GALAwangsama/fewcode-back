@@ -40,7 +40,7 @@ import top.continew.starter.extension.crud.model.resp.PageResp;
 /**
  * 系统日志 API
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/1/18 23:55
  */
 @Tag(name = "系统日志 API")

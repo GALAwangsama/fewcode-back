@@ -26,7 +26,7 @@ import java.io.Serializable;
 /**
  * 生成预览信息
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/12/19 21:34
  */
 @Data

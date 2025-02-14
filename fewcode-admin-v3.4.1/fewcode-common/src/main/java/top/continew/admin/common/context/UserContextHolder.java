@@ -26,7 +26,7 @@ import top.continew.starter.extension.crud.service.CommonUserService;
 /**
  * 用户上下文 Holder
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/24 12:58
  */
 public class UserContextHolder {

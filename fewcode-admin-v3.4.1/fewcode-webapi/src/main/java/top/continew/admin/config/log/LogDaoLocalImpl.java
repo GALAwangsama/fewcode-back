@@ -52,7 +52,7 @@ import java.util.Set;
 /**
  * 日志持久层接口本地实现类
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/12/16 23:55
  */
 @RequiredArgsConstructor

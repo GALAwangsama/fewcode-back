@@ -24,7 +24,7 @@ import top.continew.starter.core.enums.BaseEnum;
 /**
  * 成功/失败状态枚举
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/2/26 21:35
  */
 @Getter

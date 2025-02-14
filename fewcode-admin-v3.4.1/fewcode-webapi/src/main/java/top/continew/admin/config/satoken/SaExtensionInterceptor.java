@@ -27,7 +27,7 @@ import top.continew.admin.common.context.UserContextHolder;
 /**
  * Sa-Token 扩展拦截器
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2024/10/10 20:25
  */
 public class SaExtensionInterceptor extends SaInterceptor {

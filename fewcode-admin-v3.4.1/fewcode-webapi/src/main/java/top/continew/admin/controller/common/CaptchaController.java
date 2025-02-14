@@ -72,7 +72,7 @@ import java.util.Map;
 /**
  * 验证码 API
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/11 14:00
  */
 @Tag(name = "验证码 API")

@@ -29,7 +29,7 @@ import java.io.Serializable;
 /**
  * 邮箱登录参数
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/10/23 20:15
  */
 @Data

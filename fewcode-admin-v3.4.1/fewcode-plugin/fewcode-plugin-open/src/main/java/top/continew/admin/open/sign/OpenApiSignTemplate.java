@@ -30,7 +30,7 @@ import java.util.Map;
  * API 参数签名算法
  *
  * @author chengzi
- * @author Charles7c
+ * @author GALAwang
  * @since 2024/10/17 16:03
  */
 @Component

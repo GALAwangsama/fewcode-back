@@ -22,7 +22,7 @@ import top.continew.starter.security.crypto.encryptor.IEncryptor;
 /**
  * BCrypt 加/解密处理器（不可逆）
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2024/2/8 22:29
  */
 public class BCryptEncryptor implements IEncryptor {

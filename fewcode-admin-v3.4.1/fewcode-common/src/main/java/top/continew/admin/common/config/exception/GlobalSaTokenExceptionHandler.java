@@ -30,7 +30,7 @@ import top.continew.starter.web.model.R;
 /**
  * 全局 SaToken 异常处理器
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2024/8/7 20:21
  */
 @Slf4j

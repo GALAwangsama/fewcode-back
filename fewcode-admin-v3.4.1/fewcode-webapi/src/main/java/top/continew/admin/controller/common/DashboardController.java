@@ -45,7 +45,7 @@ import java.util.List;
 /**
  * 仪表盘 API
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/1/22 21:48
  */
 @Tag(name = "仪表盘 API")

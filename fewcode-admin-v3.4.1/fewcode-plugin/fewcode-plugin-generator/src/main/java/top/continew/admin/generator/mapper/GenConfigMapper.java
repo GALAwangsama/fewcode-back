@@ -22,7 +22,7 @@ import top.continew.starter.data.mp.base.BaseMapper;
 /**
  * 生成配置 Mapper
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/4/12 23:56
  */
 public interface GenConfigMapper extends BaseMapper<GenConfigDO> {

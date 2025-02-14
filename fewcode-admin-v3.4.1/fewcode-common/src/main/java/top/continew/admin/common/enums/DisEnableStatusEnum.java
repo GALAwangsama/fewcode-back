@@ -24,7 +24,7 @@ import top.continew.starter.core.enums.BaseEnum;
 /**
  * 启用/禁用状态枚举
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/29 22:38
  */
 @Getter

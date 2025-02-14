@@ -27,7 +27,7 @@ import top.continew.starter.web.autoconfigure.trace.TraceProperties;
 /**
  * 日志配置
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/24 23:15
  */
 @Configuration

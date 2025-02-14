@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 /**
  * 公告状态枚举
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/8/20 10:55
  */
 @Getter

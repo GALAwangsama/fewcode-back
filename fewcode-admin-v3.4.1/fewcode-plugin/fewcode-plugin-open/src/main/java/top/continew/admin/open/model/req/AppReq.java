@@ -31,7 +31,7 @@ import java.time.LocalDateTime;
  * 创建或修改应用参数
  *
  * @author chengzi
- * @author Charles7c
+ * @author GALAwang
  * @since 2024/10/17 16:03
  */
 @Data

@@ -40,7 +40,7 @@ import top.continew.starter.log.core.annotation.Log;
 /**
  * 三方账号认证 API
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/10/8 22:52
  */
 @Log(module = "登录")

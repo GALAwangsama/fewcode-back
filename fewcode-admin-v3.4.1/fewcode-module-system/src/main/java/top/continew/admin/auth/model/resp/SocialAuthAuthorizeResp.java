@@ -26,7 +26,7 @@ import java.io.Serializable;
 /**
  * 三方账号授权认证响应信息
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2024/3/6 22:26
  */
 @Data

@@ -25,7 +25,7 @@ import top.continew.starter.extension.datapermission.filter.DataPermissionUserCo
 /**
  * MyBatis Plus 配置
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/22 19:51
  */
 @Configuration

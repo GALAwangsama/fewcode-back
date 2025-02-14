@@ -41,7 +41,7 @@ import top.continew.starter.web.model.R;
 /**
  * 启动程序
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/8 23:15
  */
 @Slf4j

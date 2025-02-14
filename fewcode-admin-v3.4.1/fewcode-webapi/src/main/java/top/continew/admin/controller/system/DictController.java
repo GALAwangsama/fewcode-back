@@ -29,7 +29,7 @@ import top.continew.starter.extension.crud.enums.Api;
 /**
  * 字典管理 API
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/9/11 21:29
  */
 @Tag(name = "字典管理 API")

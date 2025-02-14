@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * 登录业务接口
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/21 21:48
  */
 public interface LoginService {

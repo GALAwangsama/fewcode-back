@@ -30,7 +30,7 @@ import top.continew.starter.log.core.annotation.Log;
 /**
  * 字典项管理 API
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/9/11 21:29
  */
 @Log(module = "字典管理")

@@ -35,7 +35,7 @@ import top.continew.admin.generator.model.entity.GenConfigDO;
 /**
  * 代码生成配置信息
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/8/8 20:40
  */
 @Data

@@ -26,7 +26,7 @@ import java.io.Serializable;
 /**
  * 验证码信息
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/11 13:55
  */
 @Data

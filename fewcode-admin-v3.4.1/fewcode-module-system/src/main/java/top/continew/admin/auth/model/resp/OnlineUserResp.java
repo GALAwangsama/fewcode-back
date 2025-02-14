@@ -29,7 +29,7 @@ import java.time.LocalDateTime;
 /**
  * 在线用户信息
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/1/20 21:54
  */
 @Data

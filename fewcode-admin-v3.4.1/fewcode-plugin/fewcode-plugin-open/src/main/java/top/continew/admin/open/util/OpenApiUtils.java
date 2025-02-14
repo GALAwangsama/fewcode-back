@@ -26,7 +26,7 @@ import java.util.List;
  * Open Api 工具类
  *
  * @author chengzi
- * @author Charles7c
+ * @author GALAwang
  * @since 2024/10/25 15:31
  */
 public class OpenApiUtils {

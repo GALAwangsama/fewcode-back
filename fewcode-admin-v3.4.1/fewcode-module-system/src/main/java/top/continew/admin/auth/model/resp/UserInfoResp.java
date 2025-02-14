@@ -32,7 +32,7 @@ import java.util.Set;
 /**
  * 用户信息
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/29 20:15
  */
 @Data

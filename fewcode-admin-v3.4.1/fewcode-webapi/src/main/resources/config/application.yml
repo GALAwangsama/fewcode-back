@@ -1,9 +1,9 @@
 --- ### 项目配置
 project:
   # 名称
-  name: ContiNew Admin
+  name: FewCode Admin
   # 应用名称
-  app-name: continew-admin
+  app-name: fewcode-admin
   # 版本
   version: 3.4.1
   # 描述

@@ -23,7 +23,7 @@ import top.continew.starter.core.enums.BaseEnum;
 /**
  * 性别枚举
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/29 21:59
  */
 @Getter

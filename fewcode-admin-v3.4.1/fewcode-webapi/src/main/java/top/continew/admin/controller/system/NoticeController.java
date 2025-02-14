@@ -36,7 +36,7 @@ import java.time.LocalDateTime;
 /**
  * 公告管理 API
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/8/20 10:55
  */
 @Tag(name = "公告管理 API")

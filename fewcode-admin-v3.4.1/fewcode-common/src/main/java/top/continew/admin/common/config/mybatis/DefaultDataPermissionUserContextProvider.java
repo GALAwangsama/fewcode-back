@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 /**
  * 数据权限用户上下文提供者
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/12/21 21:19
  */
 public class DefaultDataPermissionUserContextProvider implements DataPermissionUserContextProvider {

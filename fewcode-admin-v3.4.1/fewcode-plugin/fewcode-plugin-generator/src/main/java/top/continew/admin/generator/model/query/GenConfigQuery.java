@@ -25,7 +25,7 @@ import java.io.Serializable;
 /**
  * 生成配置查询条件
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/4/12 20:21
  */
 @Data

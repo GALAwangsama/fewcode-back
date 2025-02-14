@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * 在线用户业务接口
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/3/25 22:48
  */
 public interface OnlineUserService {

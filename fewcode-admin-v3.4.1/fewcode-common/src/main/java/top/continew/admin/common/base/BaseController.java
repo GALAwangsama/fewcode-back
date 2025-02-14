@@ -42,7 +42,7 @@ import java.util.List;
  * @param <D> 详情类型
  * @param <Q> 查询条件
  * @param <C> 创建或修改参数类型
- * @author Charles7c
+ * @author GALAwang
  * @since 2024/12/6 20:30
  */
 public class BaseController<S extends BaseService<L, D, Q, C>, L, D, Q, C extends BaseReq> extends AbstractBaseController<S, L, D, Q, C> {

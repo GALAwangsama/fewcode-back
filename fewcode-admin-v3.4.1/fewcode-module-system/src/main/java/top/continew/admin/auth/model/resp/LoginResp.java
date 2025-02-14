@@ -26,7 +26,7 @@ import java.io.Serializable;
 /**
  * 令牌信息
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2022/12/21 20:42
  */
 @Data

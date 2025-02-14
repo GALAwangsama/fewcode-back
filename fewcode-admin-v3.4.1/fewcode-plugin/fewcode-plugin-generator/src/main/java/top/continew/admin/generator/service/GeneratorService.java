@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * 代码生成业务接口
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/4/12 23:57
  */
 public interface GeneratorService {

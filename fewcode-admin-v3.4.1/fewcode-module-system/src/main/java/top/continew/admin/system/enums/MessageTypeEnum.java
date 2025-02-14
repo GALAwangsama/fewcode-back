@@ -24,7 +24,7 @@ import top.continew.starter.core.enums.BaseEnum;
 /**
  * 消息类型枚举
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/11/2 20:08
  */
 @Getter

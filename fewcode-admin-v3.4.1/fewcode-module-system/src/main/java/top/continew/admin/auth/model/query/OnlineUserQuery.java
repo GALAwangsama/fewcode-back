@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * 在线用户查询条件
  *
- * @author Charles7c
+ * @author GALAwang
  * @since 2023/1/20 23:07
  */
 @Data
