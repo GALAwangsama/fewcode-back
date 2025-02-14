@@ -27,7 +27,6 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="continew-admin" options="-parameters" />
       <module name="continew-extension" options="-parameters" />
       <module name="continew-extension-schedule-server" options="-parameters" />
       <module name="continew-plugin-generator" options="-parameters" />
@@ -35,6 +34,7 @@
       <module name="continew-plugin-open" options="-parameters" />
       <module name="continew-plugin-schedule" options="-parameters" />
       <module name="continew-test" options="-parameters" />
+      <module name="fewcode-admin" options="-parameters" />
       <module name="fewcode-common" options="-parameters" />
       <module name="fewcode-module-system" options="-parameters" />
       <module name="fewcode-plugin" options="-parameters" />

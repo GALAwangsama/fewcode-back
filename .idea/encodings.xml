@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-extension/continew-extension-schedule-server/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-extension/continew-extension-schedule-server/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-extension/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-extension/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-test/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/continew-test/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-common/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-common/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-module-system/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-module-system/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-plugin/continew-plugin-schedule/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-plugin/continew-plugin-schedule/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-plugin/fewcode-plugin-generator/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-plugin/fewcode-plugin-generator/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-plugin/fewcode-plugin-knowledge/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-plugin/fewcode-plugin-knowledge/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-plugin/fewcode-plugin-open/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-plugin/fewcode-plugin-open/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-plugin/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-plugin/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-webapi/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/fewcode-webapi/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/continew-admin-v3.4.1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/continew-extension/continew-extension-schedule-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/continew-extension/continew-extension-schedule-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/continew-extension/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/continew-extension/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/continew-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/continew-test/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-module-system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-module-system/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-plugin/continew-plugin-schedule/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-plugin/continew-plugin-schedule/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-plugin/fewcode-plugin-generator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-plugin/fewcode-plugin-generator/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-plugin/fewcode-plugin-knowledge/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-plugin/fewcode-plugin-knowledge/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-plugin/fewcode-plugin-open/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-plugin/fewcode-plugin-open/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-webapi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/fewcode-webapi/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fewcode-admin-v3.4.1/src/main/resources" charset="UTF-8" />
   </component>
 </project>
