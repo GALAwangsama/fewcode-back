@@ -22,8 +22,12 @@ create table if not exists sys_knowledge_manage
 -- 知识库管理管理菜单
 INSERT INTO `sys_menu`
 (`title`, `parent_id`, `type`, `path`, `name`, `component`, `redirect`, `icon`, `is_external`, `is_cache`, `is_hidden`, `permission`, `sort`, `status`, `create_user`, `create_time`, `update_user`, `update_time`)
-VALUES
-    ('知识库管理管理', 7000, 2, '/knowledge/knowledgeManage', 'KnowledgeManage', 'knowledge/knowledgeManage/index', NULL, NULL, b'0', b'0', b'0', NULL, 1, 1, 1, NOW(), NULL, NULL);
+SELECT
+    '知识库管理管理', 7000, 2, '/knowledge/knowledgeManage', 'KnowledgeManage', 'knowledge/knowledgeManage/index', NULL, NULL, b'0', b'0', b'0', NULL, 1, 1, 1, NOW(), NULL, NULL
+FROM DUAL
+WHERE NOT EXISTS (
+    SELECT 1 FROM `sys_menu` WHERE `title` = '知识库管理管理' AND `parent_id` = 7000
+);
 
 SET @parentId = LAST_INSERT_ID();
 
