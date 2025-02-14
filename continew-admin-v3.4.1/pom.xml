@@ -17,17 +17,18 @@
     </parent>
 
     <groupId>top.continew</groupId>
-    <artifactId>continew-admin</artifactId>
+    <artifactId>fewcode-admin</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
-    <description>ContiNew Admin（Continue New Admin）持续迭代优化的前后端分离中后台管理系统框架，开箱即用，持续提供舒适的开发体验。</description>
+    <description>fewcode开发模板，持续迭代优化的前后端分离中后台管理系统框架，开箱即用，持续提供舒适的开发体验。</description>
+<!--    TODO url-->
     <url>https://github.com/continew-org/continew-admin</url>
 
     <modules>
-        <module>continew-webapi</module>
-        <module>continew-module-system</module>
-        <module>continew-plugin</module>
-        <module>continew-common</module>
+        <module>fewcode-webapi</module>
+        <module>fewcode-module-system</module>
+        <module>fewcode-plugin</module>
+        <module>fewcode-common</module>
     </modules>
 
     <properties>
@@ -41,21 +42,21 @@
             <!-- API 模块（存放 Controller 层代码，打包部署的模块） -->
             <dependency>
                 <groupId>top.continew</groupId>
-                <artifactId>continew-webapi</artifactId>
+                <artifactId>fewcode-webapi</artifactId>
                 <version>3.4.1</version>
             </dependency>
 
             <!-- 系统管理模块（存放系统管理模块相关功能，例如：部门管理、角色管理、用户管理等） -->
             <dependency>
                 <groupId>top.continew</groupId>
-                <artifactId>continew-module-system</artifactId>
+                <artifactId>fewcode-module-system</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <!-- 公共模块（存放公共工具类，公共配置等） -->
             <dependency>
                 <groupId>top.continew</groupId>
-                <artifactId>continew-common</artifactId>
+                <artifactId>fewcode-common</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -64,14 +65,14 @@
             <!-- 能力开放插件（后续会改造为独立插件） -->
             <dependency>
                 <groupId>top.continew</groupId>
-                <artifactId>continew-plugin-open</artifactId>
+                <artifactId>fewcode-plugin-open</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <!-- 代码生成器插件（后续会改造为独立插件） -->
             <dependency>
                 <groupId>top.continew</groupId>
-                <artifactId>continew-plugin-generator</artifactId>
+                <artifactId>fewcode-plugin-generator</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>
