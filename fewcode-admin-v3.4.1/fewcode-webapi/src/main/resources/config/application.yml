@@ -12,7 +12,7 @@ project:
   base-package: top.continew.admin
   ## 作者信息配置
   contact:
-    name: fufu
+    name: GALAwang
     email: 666@qq.com
     url: https://blog.charles7c.top/about/me
   ## 许可协议信息配置
@@ -96,10 +96,6 @@ springdoc:
     - group: monitor
       display-name: 系统监控
       packages-to-scan: ${project.base-package}.controller.monitor
-#      #TODO 任务调度配置
-#    - group: schedule
-#      display-name: 任务调度
-#      packages-to-scan: ${project.base-package}.controller.schedule
     - group: open
       display-name: 能力开放
       packages-to-scan: ${project.base-package}.controller.open
@@ -272,18 +268,6 @@ spring:
         await-termination: true
         # 等待时间
         await-termination-period: 30s
-      #TODO 删除任务调度配置
-#    # 定时任务
-#    scheduling:
-#      thread-name-prefix: schedule-pool
-#      # 任务拒绝策略（默认 ABORT，不执行新任务，直接抛出 RejectedExecutionException 异常）
-#      # CALLER_RUNS：提交的任务在执行被拒绝时，会由提交任务的线程去执行
-#      rejected-policy: CALLER_RUNS
-#      shutdown:
-#        # 是否等待任务执行完成再关闭线程池（默认 false）
-#        await-termination: true
-#        # 等待时间
-#        await-termination-period: 30s
 
 --- ### 健康检查配置
 management.health:

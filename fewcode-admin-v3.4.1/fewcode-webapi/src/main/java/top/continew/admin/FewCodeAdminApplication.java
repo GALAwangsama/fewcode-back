@@ -52,13 +52,13 @@ import top.continew.starter.web.model.R;
 @RestController
 @SpringBootApplication
 @RequiredArgsConstructor
-public class ContiNewAdminApplication implements ApplicationRunner {
+public class FewCodeAdminApplication implements ApplicationRunner {
 
     private final ProjectProperties projectProperties;
     private final ServerProperties serverProperties;
 
     public static void main(String[] args) {
-        SpringApplication.run(ContiNewAdminApplication.class, args);
+        SpringApplication.run(FewCodeAdminApplication.class, args);
     }
 
     @Hidden
