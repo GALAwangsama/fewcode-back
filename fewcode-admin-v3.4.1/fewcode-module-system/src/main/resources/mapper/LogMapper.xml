@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="top.continew.admin.system.mapper.LogMapper">
-    <select id="selectLogPage" resultType="top.continew.admin.system.model.resp.log.LogResp">
+<mapper namespace="top.fewcode.admin.system.mapper.LogMapper">
+    <select id="selectLogPage" resultType="top.fewcode.admin.system.model.resp.log.LogResp">
         SELECT
             t1.id,
             t1.description,
@@ -21,7 +21,7 @@
         ${ew.customSqlSegment}
     </select>
 
-    <select id="selectLogList" resultType="top.continew.admin.system.model.resp.log.LogResp">
+    <select id="selectLogList" resultType="top.fewcode.admin.system.model.resp.log.LogResp">
         SELECT
             t1.id,
             t1.description,
@@ -41,14 +41,14 @@
         ${ew.customSqlSegment}
     </select>
 
-    <select id="selectDashboardOverviewPv" resultType="top.continew.admin.system.model.resp.dashboard.DashboardOverviewCommonResp">
+    <select id="selectDashboardOverviewPv" resultType="top.fewcode.admin.system.model.resp.dashboard.DashboardOverviewCommonResp">
         SELECT
             (SELECT COUNT(*) FROM sys_log) AS total,
             (SELECT COUNT(*) FROM sys_log WHERE create_time >= CURDATE() AND create_time &lt; DATE_ADD(CURDATE(), INTERVAL 1 DAY)) AS today,
             (SELECT COUNT(*) FROM sys_log WHERE create_time >= DATE_SUB(CURDATE(), INTERVAL 1 DAY) AND create_time &lt; CURDATE()) AS yesterday
     </select>
 
-    <select id="selectDashboardOverviewIp" resultType="top.continew.admin.system.model.resp.dashboard.DashboardOverviewCommonResp">
+    <select id="selectDashboardOverviewIp" resultType="top.fewcode.admin.system.model.resp.dashboard.DashboardOverviewCommonResp">
         SELECT
             (SELECT COUNT(DISTINCT ip) FROM sys_log) AS total,
             (SELECT COUNT(DISTINCT ip) FROM sys_log WHERE create_time >= CURDATE() AND create_time &lt; DATE_ADD(CURDATE(), INTERVAL 1 DAY)) AS today,
@@ -56,7 +56,7 @@
     </select>
 
     <select id="selectListDashboardAnalysisPv"
-            resultType="top.continew.admin.system.model.resp.dashboard.DashboardChartCommonResp">
+            resultType="top.fewcode.admin.system.model.resp.dashboard.DashboardChartCommonResp">
         SELECT
             DATE_FORMAT(create_time, '%Y-%m') AS name,
             COUNT(*) AS value
@@ -70,7 +70,7 @@
     </select>
 
     <select id="selectListDashboardAnalysisIp"
-            resultType="top.continew.admin.system.model.resp.dashboard.DashboardChartCommonResp">
+            resultType="top.fewcode.admin.system.model.resp.dashboard.DashboardChartCommonResp">
         SELECT
             DATE_FORMAT(create_time, '%Y-%m') AS name,
             COUNT(DISTINCT ip) AS value
@@ -83,7 +83,7 @@
         ORDER BY name
     </select>
 
-    <select id="selectListDashboardAnalysisGeo" resultType="top.continew.admin.system.model.resp.dashboard.DashboardChartCommonResp">
+    <select id="selectListDashboardAnalysisGeo" resultType="top.fewcode.admin.system.model.resp.dashboard.DashboardChartCommonResp">
         SELECT
             CASE
                 WHEN POSITION(' ' IN address) > 0 THEN SUBSTRING(address FROM 1 FOR POSITION(' ' IN address) - 1)
@@ -96,7 +96,7 @@
     </select>
 
     <select id="selectListDashboardAccessTrend"
-            resultType="top.continew.admin.system.model.resp.dashboard.DashboardAccessTrendResp">
+            resultType="top.fewcode.admin.system.model.resp.dashboard.DashboardAccessTrendResp">
         SELECT
             DATE(create_time) AS date,
             COUNT(*) AS pvCount,
@@ -108,7 +108,7 @@
     </select>
 
     <select id="selectListDashboardAnalysisTimeslot"
-            resultType="top.continew.admin.system.model.resp.dashboard.DashboardChartCommonResp">
+            resultType="top.fewcode.admin.system.model.resp.dashboard.DashboardChartCommonResp">
         SELECT
             LPAD(CONCAT(FLOOR(HOUR(create_time) / 2) * 2, ':00'), 5, '0') AS name,
             COUNT(*) AS value
@@ -118,7 +118,7 @@
     </select>
 
     <select id="selectListDashboardAnalysisModule"
-            resultType="top.continew.admin.system.model.resp.dashboard.DashboardChartCommonResp">
+            resultType="top.fewcode.admin.system.model.resp.dashboard.DashboardChartCommonResp">
         SELECT
             module AS name,
             COUNT(*) AS value
@@ -130,7 +130,7 @@
     </select>
 
     <select id="selectListDashboardAnalysisOs"
-            resultType="top.continew.admin.system.model.resp.dashboard.DashboardChartCommonResp">
+            resultType="top.fewcode.admin.system.model.resp.dashboard.DashboardChartCommonResp">
         SELECT
             os AS name,
             COUNT(*) AS value
@@ -142,7 +142,7 @@
     </select>
 
     <select id="selectListDashboardAnalysisBrowser"
-            resultType="top.continew.admin.system.model.resp.dashboard.DashboardChartCommonResp">
+            resultType="top.fewcode.admin.system.model.resp.dashboard.DashboardChartCommonResp">
         SELECT
             SUBSTRING_INDEX(browser, ' ', 1) AS name,
             COUNT(*) AS value

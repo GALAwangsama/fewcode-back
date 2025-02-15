@@ -16,7 +16,7 @@
         <version>2.7.5</version>
     </parent>
 
-    <groupId>top.continew</groupId>
+    <groupId>top.fewcode</groupId>
     <artifactId>fewcode-admin</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
@@ -41,21 +41,21 @@
         <dependencies>
             <!-- API 模块（存放 Controller 层代码，打包部署的模块） -->
             <dependency>
-                <groupId>top.continew</groupId>
+                <groupId>top.fewcode</groupId>
                 <artifactId>fewcode-webapi</artifactId>
                 <version>3.4.1</version>
             </dependency>
 
             <!-- 系统管理模块（存放系统管理模块相关功能，例如：部门管理、角色管理、用户管理等） -->
             <dependency>
-                <groupId>top.continew</groupId>
+                <groupId>top.fewcode</groupId>
                 <artifactId>fewcode-module-system</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <!-- 公共模块（存放公共工具类，公共配置等） -->
             <dependency>
-                <groupId>top.continew</groupId>
+                <groupId>top.fewcode</groupId>
                 <artifactId>fewcode-common</artifactId>
                 <version>${revision}</version>
             </dependency>
@@ -64,14 +64,14 @@
 
             <!-- 能力开放插件（后续会改造为独立插件） -->
             <dependency>
-                <groupId>top.continew</groupId>
+                <groupId>top.fewcode</groupId>
                 <artifactId>fewcode-plugin-open</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <!-- 代码生成器插件（后续会改造为独立插件） -->
             <dependency>
-                <groupId>top.continew</groupId>
+                <groupId>top.fewcode</groupId>
                 <artifactId>fewcode-plugin-generator</artifactId>
                 <version>${revision}</version>
             </dependency>

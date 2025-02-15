@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>top.continew</groupId>
+        <groupId>top.fewcode</groupId>
         <artifactId>fewcode-admin</artifactId>
         <version>${revision}</version>
     </parent>
@@ -22,7 +22,7 @@
     <dependencies>
         <!-- 公共模块（存放公共工具类，公共配置等） -->
         <dependency>
-            <groupId>top.continew</groupId>
+            <groupId>top.fewcode</groupId>
             <artifactId>fewcode-common</artifactId>
         </dependency>
     </dependencies>
