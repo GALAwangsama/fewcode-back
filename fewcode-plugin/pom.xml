@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>top.fewcode</groupId>
+        <artifactId>fewcode-admin</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>fewcode-plugin</artifactId>
+    <packaging>pom</packaging>
+    <description>插件模块（存放代码生成、能力开放等扩展模块）</description>
+
+    <modules>
+        <module>fewcode-plugin-open</module>
+        <module>fewcode-plugin-generator</module>
+        <module>fewcode-plugin-knowledge</module>
+    </modules>
+
+    <dependencies>
+        <!-- 公共模块（存放公共工具类，公共配置等） -->
+        <dependency>
+            <groupId>top.fewcode</groupId>
+            <artifactId>fewcode-common</artifactId>
+        </dependency>
+    </dependencies>
+</project>
