@@ -8,32 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="fewcode-plugin-generator" />
-        <module name="continew-test" />
         <module name="fewcode-module-system" />
         <module name="fewcode-plugin-open" />
+        <module name="fewcode-webapi" />
         <module name="fewcode-plugin-knowledge" />
         <module name="fewcode-common" />
-        <module name="fewcode-webapi" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="continew-extension" target="17" />
-      <module name="continew-extension-schedule-server" target="15" />
-      <module name="continew-plugin-generator" target="16" />
-      <module name="continew-plugin-knowledge" target="17" />
-      <module name="continew-plugin-open" target="14" />
-      <module name="continew-plugin-schedule" target="15" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="11" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="continew-extension" options="-parameters" />
-      <module name="continew-extension-schedule-server" options="-parameters" />
-      <module name="continew-plugin-generator" options="-parameters" />
-      <module name="continew-plugin-knowledge" options="-parameters" />
-      <module name="continew-plugin-open" options="-parameters" />
-      <module name="continew-plugin-schedule" options="-parameters" />
-      <module name="continew-test" options="-parameters" />
       <module name="fewcode-admin" options="-parameters" />
       <module name="fewcode-common" options="-parameters" />
       <module name="fewcode-module-system" options="-parameters" />
