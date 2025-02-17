@@ -1,6 +1,6 @@
 FROM openjdk:17
 
-MAINTAINER fufu 1714229760.@qq.com
+LABEL maintainer="GALAwang <3221134362@qq.com>"
 
 ARG JAR_FILE=*.jar
 COPY ${JAR_FILE} /app/bin/app.jar

@@ -3,14 +3,14 @@ services:
   mysql:
     image: mysql:8.0.27
     restart: always
-    container_name: fcnmysql
+    container_name: fcmysql
     ports:
       - '20082:4406'
     environment:
       TZ: Asia/Shanghai
       MYSQL_ROOT_PASSWORD: tyut123456
       # 初始化数据库（后续的初始化 SQL 会在这个库执行）
-      MYSQL_DATABASE: continew_admin
+      MYSQL_DATABASE: fewcode_admin
       MYSQL_USER: user1
       MYSQL_PASSWORD: tyut123456
     command:
@@ -35,15 +35,15 @@ services:
   redis:
     image: redis:6
     restart: always
-    container_name: fcnredis
+    container_name: fcredis
     ports:
       - '20083:7789'
     environment:
       TZ: Asia/Shanghai
-  continew-admin-server:
-    build: ./continew-admin
+  fewcode-admin-server:
+    build: ./fewcode-admin
     restart: always
-    container_name: continew-admin-server-lastest
+    container_name: fewcode-admin-server
     ports:
       - '20080:20080'
 
@@ -65,7 +65,7 @@ services:
 #      - /docker/continew-admin/data/file/:/app/data/file/
 #      - /docker/continew-admin/logs/:/app/logs/
 #      - /docker/continew-admin/lib/:/app/lib/
-      - /docker/continew-admin/bin/continew-admin.jar:/app/bin/continew-admin.jar
+      - /docker/fewcode-admin/bin/fewcode-admin.jar:/app/bin/fewcode-admin.jar
 
     depends_on:
       - redis
