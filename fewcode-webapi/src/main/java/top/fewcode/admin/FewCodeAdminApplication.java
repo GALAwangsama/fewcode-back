@@ -80,8 +80,6 @@ public class FewCodeAdminApplication implements ApplicationRunner {
         if (!knife4jProperties.isProduction()) {
             log.info("API文档：{}/doc.html", baseUrl);
         }
-        log.info("在线文档：https://continew.top");
-        log.info("常见问题：https://continew.top/faq.html");
         log.info("----------------------------------------------");
     }
 }
