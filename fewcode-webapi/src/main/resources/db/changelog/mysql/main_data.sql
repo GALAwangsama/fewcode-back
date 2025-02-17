@@ -122,7 +122,7 @@ VALUES
 INSERT INTO `sys_option`
 (`id`, `category`, `name`, `code`, `value`, `default_value`, `description`, `update_user`, `update_time`)
 VALUES
-(1, 'SITE', '系统标题', 'SITE_TITLE', NULL, 'ContiNew Admin', '用于显示登录页面的系统标题。', NULL, NULL),
+(1, 'SITE', '系统标题', 'SITE_TITLE', NULL, 'fewcode Admin', '用于显示登录页面的系统标题。', NULL, NULL),
 (2, 'SITE', '系统描述', 'SITE_DESCRIPTION', NULL, '持续迭代优化的前后端分离中后台管理系统框架', NULL, NULL, NULL),
 (3, 'SITE', '版权信息', 'SITE_COPYRIGHT', NULL, 'Copyright © 2022 - present ContiNew Admin 版权所有', '用于显示登录页面的底部版权信息。', NULL, NULL),
 (4, 'SITE', '备案号', 'SITE_BEIAN', NULL, NULL, 'ICP备案号', NULL, NULL),

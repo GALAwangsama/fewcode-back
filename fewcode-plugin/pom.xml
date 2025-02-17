@@ -16,7 +16,6 @@
     <modules>
         <module>fewcode-plugin-open</module>
         <module>fewcode-plugin-generator</module>
-        <module>fewcode-plugin-knowledge</module>
     </modules>
 
     <dependencies>

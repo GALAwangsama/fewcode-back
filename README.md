@@ -122,7 +122,7 @@ FewCode (FC) 开发模板 开箱即用的前后端分离中后台管理系统，
 # 4.部署
 # 4.1 Docker 部署
 #   4.1.1 服务器安装好 docker 及 docker-compose（参考：https://blog.charles7c.top/categories/fragments/2022/10/31/CentOS%E5%AE%89%E8%A3%85Docker）
-#   4.1.2 执行 mvn package 进行项目打包，将 target/app 目录下的所有内容放到 /docker/continew-admin 目录下
+#   4.1.2 执行 mvn package 进行项目打包，将 target/app 目录下的所有内容放到 /docker/fewcode-admin 目录下
 #   4.1.3 将 docker 目录上传到服务器 / 目录下，并授权（chmod -R 777 /docker）
 #   4.1.4 修改 docker-compose.yml 中的 MySQL 配置、Redis 配置、continew-admin-server 配置、Nginx 配置
 #   4.1.5 执行 docker-compose up -d 创建并后台运行所有容器
@@ -139,7 +139,7 @@ fewcode-admin
 ├─ fewcode-webapi（API 及打包部署模块）
 │  ├─ src
 │  │  ├─ main
-│  │  │  ├─ java/top/continew/admin
+│  │  │  ├─ java/top/fewcode/admin
 │  │  │  │  ├─ config （配置）
 │  │  │  │  ├─ controller
 │  │  │  │  │  ├─ auth（系统认证相关 API）
@@ -147,7 +147,7 @@ fewcode-admin
 │  │  │  │  │  ├─ monitor（系统监控相关 API）
 │  │  │  │  │  ├─ system（系统管理相关 API）
 │  │  │  │  │  └─ tool（系统工具相关 API）
-│  │  │  │  └─ ContiNewAdminApplication.java（ContiNew Admin 启动程序）
+│  │  │  │  └─ FewCodeAdminApplication.java（FewCode Admin 启动程序）
 │  │  │  └─ resources
 │  │  │     ├─ config（核心配置目录）
 │  │  │     │  ├─ application-dev.yml（开发环境配置文件）
@@ -165,7 +165,7 @@ fewcode-admin
 ├─ fewcode-module-system（系统管理模块，存放系统管理相关业务功能，例如：部门管理、角色管理、用户管理等）
 │  ├─ src
 │  │  ├─ main
-│  │  │  ├─ java/top/continew/admin
+│  │  │  ├─ java/top/fewcode/admin
 │  │  │  │  ├─ auth（系统认证相关业务）
 │  │  │  │  │  ├─ model（系统认证相关模型）
 │  │  │  │  │  │  ├─ query（系统认证相关查询条件）
@@ -190,7 +190,7 @@ fewcode-admin
 ├─ fewcode-plugin（插件模块，存放代码生成、任务调度等扩展模块，后续会进行插件化改造）
 │  ├─ fewcode-plugin-open（能力开放插件模块）
 │  │  ├─ src
-│  │  │  ├─ main/java/top/continew/admin/open
+│  │  │  ├─ main/java/top/fewcode/admin/open
 │  │  │  │  ├─ mapper（代码生成器相关 Mapper）
 │  │  │  │  ├─ model（能力开放相关模型）
 │  │  │  │  │  ├─ entity（能力开放相关实体对象）
@@ -203,7 +203,7 @@ fewcode-admin
 │  ├─ fewcode-plugin-generator（代码生成器插件模块）
 │  │  ├─ src
 │  │  │  ├─ main
-│  │  │  │  ├─ java/top/continew/admin/generator
+│  │  │  │  ├─ java/top/fewcode/admin/generator
 │  │  │  │  │  ├─ config（代码生成器相关配置）
 │  │  │  │  │  ├─ enums（代码生成器相关枚举）
 │  │  │  │  │  ├─ mapper（代码生成器相关 Mapper）
@@ -222,7 +222,7 @@ fewcode-admin
 │  └─ pom.xml
 ├─ fewcode-common（公共模块，存放公共工具类，公共配置等）
 │  ├─ src
-│  │  ├─ main/java/top/continew/admin/common
+│  │  ├─ main/java/top/fewcode/admin/common
 │  │  │  ├─ config（公共配置）
 │  │  │  ├─ constant（公共常量）
 │  │  │  ├─ enums（公共枚举）

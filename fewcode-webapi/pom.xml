@@ -63,12 +63,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>top.fewcode</groupId>
-            <artifactId>fewcode-plugin-knowledge</artifactId>
-            <version>3.4.1</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <build>
