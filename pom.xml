@@ -27,8 +27,11 @@
     <modules>
         <module>fewcode-webapi</module>
         <module>fewcode-module-system</module>
+        <module>fewcode-module-index-system</module>
+        <module>fewcode-module-app-system</module>
         <module>fewcode-plugin</module>
         <module>fewcode-common</module>
+
     </modules>
 
     <properties>
@@ -46,10 +49,24 @@
                 <version>3.4.1</version>
             </dependency>
 
-            <!-- 系统管理模块（存放系统管理模块相关功能，例如：部门管理、角色管理、用户管理等） -->
+            <!-- 后台系统管理模块（存放系统管理模块相关功能，例如：部门管理、角色管理、用户管理等） -->
             <dependency>
                 <groupId>top.fewcode</groupId>
                 <artifactId>fewcode-module-system</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 前台系统管理模块（用户管理） -->
+            <dependency>
+                <groupId>top.fewcode</groupId>
+                <artifactId>fewcode-module-index-system</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 小程序系统管理模块（用户管理） -->
+            <dependency>
+                <groupId>top.fewcode</groupId>
+                <artifactId>fewcode-module-app-system</artifactId>
                 <version>${revision}</version>
             </dependency>
 

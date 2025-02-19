@@ -10,8 +10,10 @@
         <module name="fewcode-plugin-generator" />
         <module name="fewcode-module-system" />
         <module name="fewcode-plugin-open" />
-        <module name="fewcode-webapi" />
+        <module name="fewcode-module-index-system" />
         <module name="fewcode-common" />
+        <module name="fewcode-webapi" />
+        <module name="fewcode-module-app-system" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">
@@ -22,6 +24,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="fewcode-admin" options="-parameters" />
       <module name="fewcode-common" options="-parameters" />
+      <module name="fewcode-module-app-system" options="-parameters" />
+      <module name="fewcode-module-index-system" options="-parameters" />
       <module name="fewcode-module-system" options="-parameters" />
       <module name="fewcode-plugin" options="-parameters" />
       <module name="fewcode-plugin-generator" options="-parameters" />
