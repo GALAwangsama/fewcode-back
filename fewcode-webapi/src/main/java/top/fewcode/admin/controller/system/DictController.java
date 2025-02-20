@@ -17,13 +17,13 @@ package top.fewcode.admin.controller.system;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.RestController;
+import top.continew.starter.extension.crud.annotation.CrudRequestMapping;
+import top.fewcode.admin.common.base.BaseController;
+import top.continew.starter.extension.crud.enums.Api;
 import top.fewcode.admin.system.model.query.DictQuery;
 import top.fewcode.admin.system.model.req.DictReq;
 import top.fewcode.admin.system.model.resp.DictResp;
 import top.fewcode.admin.system.service.DictService;
-import top.continew.starter.extension.crud.annotation.CrudRequestMapping;
-import top.fewcode.admin.common.base.BaseController;
-import top.continew.starter.extension.crud.enums.Api;
 
 /**
  * 字典管理 API

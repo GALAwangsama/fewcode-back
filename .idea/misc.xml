@@ -9,6 +9,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/fewcode-module-app-system/pom.xml" />
         <option value="$PROJECT_DIR$/fewcode-plugin/fewcode-plugin-knowledge/pom.xml" />
       </set>
     </option>

@@ -18,7 +18,15 @@
             <groupId>top.fewcode</groupId>
             <artifactId>fewcode-common</artifactId>
         </dependency>
+
+        <!-- 系统管理模块（调用共用系统配置） -->
+        <dependency>
+            <groupId>top.fewcode</groupId>
+            <artifactId>fewcode-module-system</artifactId>
+        </dependency>
     </dependencies>
+
+
     <build>
         <plugins>
             <plugin>

@@ -18,10 +18,10 @@ package top.fewcode.admin.controller.system;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.RestController;
 import top.fewcode.admin.common.base.BaseController;
-import top.fewcode.admin.system.model.query.DeptQuery;
 import top.fewcode.admin.system.model.req.DeptReq;
 import top.fewcode.admin.system.model.resp.DeptResp;
 import top.fewcode.admin.system.service.DeptService;
+import top.fewcode.admin.system.model.query.DeptQuery;
 import top.continew.starter.extension.crud.annotation.CrudRequestMapping;
 import top.continew.starter.extension.crud.enums.Api;
 

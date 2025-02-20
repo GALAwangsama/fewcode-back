@@ -20,15 +20,15 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import top.continew.starter.extension.crud.annotation.CrudRequestMapping;
+import top.fewcode.admin.common.base.BaseController;
+import top.continew.starter.extension.crud.enums.Api;
+import top.continew.starter.log.core.annotation.Log;
 import top.fewcode.admin.system.model.query.FileQuery;
 import top.fewcode.admin.system.model.req.FileReq;
 import top.fewcode.admin.system.model.resp.FileResp;
 import top.fewcode.admin.system.model.resp.FileStatisticsResp;
 import top.fewcode.admin.system.service.FileService;
-import top.continew.starter.extension.crud.annotation.CrudRequestMapping;
-import top.fewcode.admin.common.base.BaseController;
-import top.continew.starter.extension.crud.enums.Api;
-import top.continew.starter.log.core.annotation.Log;
 
 /**
  * 文件管理 API

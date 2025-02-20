@@ -13,10 +13,10 @@
         <module name="fewcode-module-index-system" />
         <module name="fewcode-common" />
         <module name="fewcode-webapi" />
-        <module name="fewcode-module-app-system" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">
+      <module name="fewcode-module-app-system" target="16" />
       <module name="fewcode-plugin-knowledge" target="17" />
     </bytecodeTargetLevel>
   </component>

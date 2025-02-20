@@ -30,10 +30,10 @@ import top.fewcode.admin.generator.model.query.GenConfigQuery;
 import top.fewcode.admin.generator.model.req.GenConfigReq;
 import top.fewcode.admin.generator.model.resp.GeneratePreviewResp;
 import top.fewcode.admin.generator.service.GeneratorService;
-import top.fewcode.admin.system.service.DictService;
 import top.continew.starter.extension.crud.model.query.PageQuery;
 import top.continew.starter.extension.crud.model.resp.LabelValueResp;
 import top.continew.starter.extension.crud.model.resp.PageResp;
+import top.fewcode.admin.system.service.DictService;
 
 import java.sql.SQLException;
 import java.util.List;

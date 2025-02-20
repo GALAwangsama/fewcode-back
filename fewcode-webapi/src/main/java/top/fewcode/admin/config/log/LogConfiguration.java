@@ -17,11 +17,11 @@ package top.fewcode.admin.config.log;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import top.fewcode.admin.system.mapper.LogMapper;
-import top.fewcode.admin.system.service.UserService;
+import top.fewcode.admin.indexSystem.service.IndexUserService;
 import top.continew.starter.log.core.dao.LogDao;
 import top.continew.starter.log.interceptor.autoconfigure.ConditionalOnEnabledLog;
 import top.continew.starter.web.autoconfigure.trace.TraceProperties;
+import top.fewcode.admin.system.mapper.LogMapper;
 
 /**
  * 日志配置
@@ -37,7 +37,7 @@ public class LogConfiguration {
      * 日志持久层接口本地实现类
      */
     @Bean
-    public LogDao logDao(UserService userService, LogMapper logMapper, TraceProperties traceProperties) {
+    public LogDao logDao(IndexUserService userService, LogMapper logMapper, TraceProperties traceProperties) {
         return new LogDaoLocalImpl(userService, logMapper, traceProperties);
     }
 }
