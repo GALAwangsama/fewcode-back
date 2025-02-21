@@ -18,24 +18,23 @@ package top.fewcode.admin.index.model.resp;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import top.fewcode.admin.common.enums.GenderEnum;
 import top.continew.starter.security.mask.annotation.JsonMask;
 import top.continew.starter.security.mask.enums.MaskType;
+import top.fewcode.admin.common.enums.GenderEnum;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Set;
 
 /**
- * 用户信息
+ * 前台用户信息
  *
  * @author GALAwang
  * @since 2022/12/29 20:15
  */
 @Data
-@Schema(description = "用户信息")
+@Schema(description = "前台用户信息")
 public class IndexUserInfoResp implements Serializable {
 
     @Serial
@@ -48,9 +47,9 @@ public class IndexUserInfoResp implements Serializable {
     private Long id;
 
     /**
-     * 用户名
+     * 前台用户名
      */
-    @Schema(description = "用户名", example = "zhangsan")
+    @Schema(description = "前台用户名", example = "zhangsan")
     private String username;
 
     /**
@@ -114,30 +113,6 @@ public class IndexUserInfoResp implements Serializable {
      */
     @Schema(description = "注册日期", example = "2023-08-08")
     private LocalDate registrationDate;
-
-    /**
-     * 部门 ID
-     */
-    @Schema(description = "部门 ID", example = "1")
-    private Long deptId;
-
-    /**
-     * 所属部门
-     */
-    @Schema(description = "所属部门", example = "测试部")
-    private String deptName;
-
-    /**
-     * 权限码集合
-     */
-    @Schema(description = "权限码集合", example = "[\"system:user:list\",\"system:user:add\"]")
-    private Set<String> permissions;
-
-    /**
-     * 角色编码集合
-     */
-    @Schema(description = "角色编码集合", example = "[\"test\"]")
-    private Set<String> roles;
 
     public LocalDate getRegistrationDate() {
         return createTime.toLocalDate();

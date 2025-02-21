@@ -15,35 +15,41 @@
  */
 package top.fewcode.admin.index.service.impl;
 
+import cn.dev33.satoken.stp.SaLoginConfig;
 import cn.dev33.satoken.stp.StpUtil;
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.extra.servlet.JakartaServletUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import me.zhyd.oauth.model.AuthUser;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import top.fewcode.admin.index.service.IndexLoginService;
-import top.fewcode.admin.common.constant.CacheConstants;
-import top.fewcode.admin.common.constant.SysConstants;
-import top.fewcode.admin.common.enums.DisEnableStatusEnum;
-import top.fewcode.admin.system.enums.MessageTemplateEnum;
-import top.fewcode.admin.system.enums.MessageTypeEnum;
-import top.fewcode.admin.system.enums.PasswordPolicyEnum;
-import top.fewcode.admin.indexSystem.model.entity.IndexUserDO;
-import top.fewcode.admin.system.model.req.MessageReq;
-import top.fewcode.admin.indexSystem.service.IndexUserService;
 import top.continew.starter.cache.redisson.util.RedisUtils;
 import top.continew.starter.core.autoconfigure.project.ProjectProperties;
 import top.continew.starter.core.validation.CheckUtils;
 import top.continew.starter.messaging.websocket.util.WebSocketUtils;
+import top.continew.starter.web.util.SpringWebUtils;
+import top.fewcode.admin.common.constant.CacheConstants;
+import top.fewcode.admin.common.constant.SysConstants;
+import top.fewcode.admin.common.context.IndexUserContext;
+import top.fewcode.admin.common.context.IndexUserContextHolder;
+import top.fewcode.admin.common.context.UserExtraContext;
+import top.fewcode.admin.common.enums.DisEnableStatusEnum;
+import top.fewcode.admin.index.service.IndexLoginService;
+import top.fewcode.admin.indexSystem.model.entity.IndexUserDO;
+import top.fewcode.admin.indexSystem.service.IndexUserService;
+import top.fewcode.admin.system.enums.MessageTemplateEnum;
+import top.fewcode.admin.system.enums.MessageTypeEnum;
+import top.fewcode.admin.system.enums.PasswordPolicyEnum;
+import top.fewcode.admin.system.model.req.MessageReq;
 import top.fewcode.admin.system.service.MessageService;
 import top.fewcode.admin.system.service.OptionService;
 
 import java.time.Duration;
-import java.util.*;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * 登录业务实现
@@ -90,18 +96,6 @@ public class IndexLoginServiceImpl implements IndexLoginService {
     }
 
     /**
-     * 构建路由树
-     *  TODO 路由是否不需要（权限控制冗余）
-     * @return 路由树
-     */
-    @Override
-    public String socialLogin(AuthUser authUser) {
-        return null;
-    }
-
-
-    //TODO 用户上下文相关更改
-    /**
      * 登录并缓存用户信息
      *
      * @param user 用户信息
@@ -109,20 +103,15 @@ public class IndexLoginServiceImpl implements IndexLoginService {
      */
     private String login(IndexUserDO user) {
         Long userId = user.getId();
-//        CompletableFuture<Set<String>> permissionFuture = CompletableFuture.supplyAsync(() -> roleService
-//            .listPermissionByUserId(userId), threadPoolTaskExecutor);
-//        CompletableFuture<Set<RoleContext>> roleFuture = CompletableFuture.supplyAsync(() -> roleService
-//            .listByUserId(userId), threadPoolTaskExecutor);
-//        CompletableFuture<Integer> passwordExpirationDaysFuture = CompletableFuture.supplyAsync(() -> optionService
-//            .getValueByCode2Int(PasswordPolicyEnum.PASSWORD_EXPIRATION_DAYS.name()));
-//        CompletableFuture.allOf(permissionFuture, roleFuture, passwordExpirationDaysFuture);
-//        UserContext userContext = new UserContext(permissionFuture.join(), roleFuture
-//            .join(), passwordExpirationDaysFuture.join());
-//        BeanUtil.copyProperties(user, userContext);
-//        // 登录并缓存用户信息
-//        StpUtil.login(userContext.getId(), SaLoginConfig.setExtraData(BeanUtil
-//            .beanToMap(new UserExtraContext(SpringWebUtils.getRequest()))));
-//        UserContextHolder.setContext(userContext);
+        CompletableFuture<Integer> passwordExpirationDaysFuture = CompletableFuture.supplyAsync(() -> optionService
+                .getValueByCode2Int(PasswordPolicyEnum.PASSWORD_EXPIRATION_DAYS.name()));
+        CompletableFuture.allOf(passwordExpirationDaysFuture);
+        IndexUserContext userContext = new IndexUserContext(passwordExpirationDaysFuture.join());
+        BeanUtil.copyProperties(user, userContext);
+        // 登录并缓存用户信息
+        StpUtil.login(userContext.getId(), SaLoginConfig.setExtraData(BeanUtil
+                .beanToMap(new UserExtraContext(SpringWebUtils.getRequest()))));
+        IndexUserContextHolder.setContext(userContext);
         return StpUtil.getTokenValue();
     }
 

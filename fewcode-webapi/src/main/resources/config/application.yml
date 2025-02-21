@@ -102,6 +102,12 @@ springdoc:
     - group: code
       display-name: 代码生成
       packages-to-scan: ${project.base-package}.controller.code
+    - group: index
+      display-name: 前台系统认证
+      packages-to-scan: ${project.base-package}.controller.index
+
+
+
   ## 组件配置
   components:
     # 鉴权配置

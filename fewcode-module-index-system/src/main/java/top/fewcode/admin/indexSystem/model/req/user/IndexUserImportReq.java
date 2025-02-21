@@ -19,9 +19,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import top.continew.starter.extension.crud.model.req.BaseReq;
 import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.fewcode.admin.system.enums.ImportPolicyEnum;
-import top.continew.starter.extension.crud.model.req.BaseReq;
 
 import java.io.Serial;
 
@@ -32,7 +32,7 @@ import java.io.Serial;
  * @since 2024-6-17 16:42
  */
 @Data
-@Schema(description = "用户导入参数")
+@Schema(description = "前台用户导入参数")
 public class IndexUserImportReq extends BaseReq {
 
     @Serial
@@ -48,8 +48,8 @@ public class IndexUserImportReq extends BaseReq {
     /**
      * 用户重复策略
      */
-    @Schema(description = "重复用户策略", example = "1")
-    @NotNull(message = "重复用户策略不能为空")
+    @Schema(description = "重复前台用户策略", example = "1")
+    @NotNull(message = "重复前台用户策略不能为空")
     private ImportPolicyEnum duplicateUser;
 
     /**

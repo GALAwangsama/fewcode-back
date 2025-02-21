@@ -13,12 +13,20 @@
     <description>小程序系统管理模块（用户管理）</description>
 
     <dependencies>
-        <!-- 公共模块（存放公共工具类，公共配置等） -->
+<!--        &lt;!&ndash; 公共模块（存放公共工具类，公共配置等） &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>top.fewcode</groupId>-->
+<!--            <artifactId>fewcode-common</artifactId>-->
+<!--        </dependency>-->
+
+        <!-- 系统管理模块（调用共用系统配置） -->
         <dependency>
             <groupId>top.fewcode</groupId>
-            <artifactId>fewcode-common</artifactId>
+            <artifactId>fewcode-module-system</artifactId>
         </dependency>
     </dependencies>
+
+
     <build>
         <plugins>
             <plugin>

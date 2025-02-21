@@ -16,7 +16,6 @@
 package top.fewcode.admin.index.service;
 
 import jakarta.servlet.http.HttpServletRequest;
-import me.zhyd.oauth.model.AuthUser;
 
 /**
  * 登录业务接口
@@ -29,7 +28,7 @@ public interface IndexLoginService {
     /**
      * 账号登录
      *
-     * @param username 用户名
+     * @param username 前台用户名
      * @param password 密码
      * @param request  请求对象
      * @return 令牌
@@ -52,19 +51,4 @@ public interface IndexLoginService {
      */
     String emailLogin(String email);
 
-    /**
-     * 三方账号登录
-     *
-     * @param authUser 三方账号信息
-     * @return 令牌
-     */
-    String socialLogin(AuthUser authUser);
-
-    /**
-     * 构建路由树
-     *  TODO 路由是否不需要（权限控制冗余）
-     * @param userId 用户 ID
-     * @return 路由树
-     */
-//    List<RouteResp> buildRouteTree(Long userId);
 }

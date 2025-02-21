@@ -27,12 +27,6 @@ import cn.hutool.json.JSONUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.scheduling.annotation.Async;
-import top.fewcode.admin.index.model.req.IndexAccountLoginReq;
-import top.fewcode.admin.common.constant.SysConstants;
-import top.fewcode.admin.indexSystem.service.IndexUserService;
-import top.fewcode.admin.system.enums.LogStatusEnum;
-import top.fewcode.admin.system.mapper.LogMapper;
-import top.fewcode.admin.system.model.entity.LogDO;
 import top.continew.starter.core.constant.StringConstants;
 import top.continew.starter.core.util.ExceptionUtils;
 import top.continew.starter.core.util.StrUtils;
@@ -42,6 +36,12 @@ import top.continew.starter.log.core.model.LogRequest;
 import top.continew.starter.log.core.model.LogResponse;
 import top.continew.starter.web.autoconfigure.trace.TraceProperties;
 import top.continew.starter.web.model.R;
+import top.fewcode.admin.auth.model.req.AccountLoginReq;
+import top.fewcode.admin.common.constant.SysConstants;
+import top.fewcode.admin.system.enums.LogStatusEnum;
+import top.fewcode.admin.system.mapper.LogMapper;
+import top.fewcode.admin.system.model.entity.LogDO;
+import top.fewcode.admin.system.service.UserService;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -57,7 +57,7 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class LogDaoLocalImpl implements LogDao {
 
-    private final IndexUserService userService;
+    private final UserService userService;
     private final LogMapper logMapper;
     private final TraceProperties traceProperties;
 
@@ -144,7 +144,7 @@ public class LogDaoLocalImpl implements LogDao {
         // 解析登录接口信息
         if (requestUri.startsWith(SysConstants.LOGIN_URI) && LogStatusEnum.SUCCESS.equals(logDO.getStatus())) {
             String requestBody = logRequest.getBody();
-            IndexAccountLoginReq loginReq = JSONUtil.toBean(requestBody, IndexAccountLoginReq.class);
+            AccountLoginReq loginReq = JSONUtil.toBean(requestBody, AccountLoginReq.class);
             logDO.setCreateUser(ExceptionUtils.exToNull(() -> userService.getByUsername(loginReq.getUsername())
                 .getId()));
             return;

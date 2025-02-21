@@ -44,7 +44,7 @@
             <artifactId>fewcode-module-index-system</artifactId>
         </dependency>
 
-        <!-- 系统管理模块（用户管理） -->
+        <!-- 小程序系统管理模块（用户管理） -->
         <dependency>
             <groupId>top.fewcode</groupId>
             <artifactId>fewcode-module-app-system</artifactId>

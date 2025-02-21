@@ -20,12 +20,12 @@ import com.alibaba.excel.annotation.ExcelIgnoreUnannotated;
 import com.alibaba.excel.annotation.ExcelProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import top.fewcode.admin.common.constant.ContainerConstants;
-import top.fewcode.admin.common.enums.DisEnableStatusEnum;
-import top.fewcode.admin.common.enums.GenderEnum;
 import top.continew.starter.extension.crud.model.resp.BaseDetailResp;
 import top.continew.starter.file.excel.converter.ExcelBaseEnumConverter;
 import top.continew.starter.security.crypto.annotation.FieldEncrypt;
+import top.fewcode.admin.common.constant.ContainerConstants;
+import top.fewcode.admin.common.enums.DisEnableStatusEnum;
+import top.fewcode.admin.common.enums.GenderEnum;
 
 import java.io.Serial;
 
@@ -37,7 +37,7 @@ import java.io.Serial;
  */
 @Data
 @ExcelIgnoreUnannotated
-@Schema(description = "用户详情信息")
+@Schema(description = "前台用户详情信息")
 @Assemble(key = "id", prop = ":roleIds", sort = 0, container = ContainerConstants.USER_ROLE_ID_LIST)
 public class IndexUserDetailResp extends BaseDetailResp {
 
@@ -47,8 +47,8 @@ public class IndexUserDetailResp extends BaseDetailResp {
     /**
      * 用户名
      */
-    @Schema(description = "用户名", example = "zhangsan")
-    @ExcelProperty(value = "用户名", order = 2)
+    @Schema(description = "前台用户名", example = "zhangsan")
+    @ExcelProperty(value = "前台用户名", order = 2)
     private String username;
 
     /**

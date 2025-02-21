@@ -32,7 +32,7 @@ import java.io.Serializable;
  * @since 2023/10/27 20:11
  */
 @Data
-@Schema(description = "用户手机号修改参数")
+@Schema(description = "前台用户手机号修改参数")
 public class IndexUserPhoneUpdateReq implements Serializable {
 
     @Serial

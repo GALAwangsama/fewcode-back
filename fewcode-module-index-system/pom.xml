@@ -10,14 +10,14 @@
     </parent>
 
     <artifactId>fewcode-module-index-system</artifactId>
-    <description>前台系统管理模块（用户管理）</description>
+    <description>前台系统管理模块（前台用户管理）</description>
 
     <dependencies>
-        <!-- 公共模块（存放公共工具类，公共配置等） -->
-        <dependency>
-            <groupId>top.fewcode</groupId>
-            <artifactId>fewcode-common</artifactId>
-        </dependency>
+        <!--        &lt;!&ndash; 公共模块（存放公共工具类，公共配置等） &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>top.fewcode</groupId>-->
+        <!--            <artifactId>fewcode-common</artifactId>-->
+        <!--        </dependency>-->
 
         <!-- 系统管理模块（调用共用系统配置） -->
         <dependency>

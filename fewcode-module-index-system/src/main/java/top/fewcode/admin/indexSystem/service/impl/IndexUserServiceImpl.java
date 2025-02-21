@@ -40,7 +40,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -53,30 +52,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import top.fewcode.admin.auth.service.OnlineUserService;
-import top.fewcode.admin.common.constant.CacheConstants;
-import top.fewcode.admin.common.constant.SysConstants;
-import top.fewcode.admin.common.context.UserContext;
-import top.fewcode.admin.common.context.UserContextHolder;
-import top.fewcode.admin.common.enums.DisEnableStatusEnum;
-import top.fewcode.admin.common.enums.GenderEnum;
-import top.fewcode.admin.common.util.SecureUtils;
-import top.fewcode.admin.indexSystem.model.entity.IndexUserDO;
-import top.fewcode.admin.indexSystem.model.query.IndexUserQuery;
-import top.fewcode.admin.indexSystem.model.req.user.*;
-import top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp;
-import top.fewcode.admin.indexSystem.model.resp.user.IndexUserImportResp;
-import top.fewcode.admin.indexSystem.model.resp.user.IndexUserResp;
-import top.fewcode.admin.indexSystem.service.IndexUserService;
-import top.fewcode.admin.system.enums.ImportPolicyEnum;
-import top.fewcode.admin.system.enums.OptionCategoryEnum;
-import top.fewcode.admin.system.enums.PasswordPolicyEnum;
-import top.fewcode.admin.indexSystem.mapper.IndexUserMapper;
-import top.fewcode.admin.system.model.query.UserQuery;
-import top.fewcode.admin.system.model.req.user.*;
-import top.fewcode.admin.indexSystem.model.resp.user.IndexUserImportParseResp;
-import top.fewcode.admin.system.model.resp.user.UserImportResp;
-import top.fewcode.admin.system.service.*;
 import top.continew.starter.cache.redisson.util.RedisUtils;
 import top.continew.starter.core.constant.StringConstants;
 import top.continew.starter.core.exception.BusinessException;
@@ -84,13 +59,32 @@ import top.continew.starter.core.validation.CheckUtils;
 import top.continew.starter.extension.crud.model.query.PageQuery;
 import top.continew.starter.extension.crud.model.query.SortQuery;
 import top.continew.starter.extension.crud.model.resp.PageResp;
-import top.continew.starter.extension.crud.service.CommonUserService;
 import top.continew.starter.extension.crud.service.BaseServiceImpl;
 import top.continew.starter.web.util.FileUploadUtils;
-import top.fewcode.admin.system.model.entity.DeptDO;
+import top.fewcode.admin.auth.service.OnlineUserService;
+import top.fewcode.admin.common.constant.CacheConstants;
+import top.fewcode.admin.common.context.IndexUserContext;
+import top.fewcode.admin.common.context.IndexUserContextHolder;
+import top.fewcode.admin.common.enums.DisEnableStatusEnum;
+import top.fewcode.admin.common.enums.GenderEnum;
+import top.fewcode.admin.common.util.SecureUtils;
+import top.fewcode.admin.indexSystem.mapper.IndexUserMapper;
+import top.fewcode.admin.indexSystem.model.entity.IndexUserDO;
+import top.fewcode.admin.indexSystem.model.query.IndexUserQuery;
+import top.fewcode.admin.indexSystem.model.req.user.*;
+import top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp;
+import top.fewcode.admin.indexSystem.model.resp.user.IndexUserImportParseResp;
+import top.fewcode.admin.indexSystem.model.resp.user.IndexUserImportResp;
+import top.fewcode.admin.indexSystem.model.resp.user.IndexUserResp;
+import top.fewcode.admin.indexSystem.service.CommonIndexUserService;
+import top.fewcode.admin.indexSystem.service.IndexUserService;
+import top.fewcode.admin.system.enums.ImportPolicyEnum;
+import top.fewcode.admin.system.enums.OptionCategoryEnum;
+import top.fewcode.admin.system.enums.PasswordPolicyEnum;
 import top.fewcode.admin.system.model.entity.UserDO;
-import top.fewcode.admin.system.model.entity.UserRoleDO;
-import top.fewcode.admin.system.service.DeptService;
+import top.fewcode.admin.system.model.req.user.UserImportRowReq;
+import top.fewcode.admin.system.service.OptionService;
+import top.fewcode.admin.system.service.UserPasswordHistoryService;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -108,15 +102,13 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, IndexUserDO, IndexUserResp, IndexUserDetailResp, IndexUserQuery, IndexUserReq> implements IndexUserService, CommonUserService {
+public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, IndexUserDO, IndexUserResp, IndexUserDetailResp, IndexUserQuery, IndexUserReq> implements IndexUserService, CommonIndexUserService {
 
     private final PasswordEncoder passwordEncoder;
     private final UserPasswordHistoryService userPasswordHistoryService;
     private final OptionService optionService;
     private final OnlineUserService onlineUserService;
 
-    @Resource
-    private DeptService deptService;
     @Value("${avatar.support-suffix}")
     private String[] avatarSupportSuffix;
 
@@ -142,15 +134,6 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
         CheckUtils.throwIf(StrUtil.isNotBlank(phone) && this.isPhoneExists(phone, null), errorMsgTemplate, phone);
     }
 
-
-//    @Override
-//    public void afterAdd(UserReq req, IndexUserDO user) {
-//        Long userId = user.getId();
-//        baseMapper.lambdaUpdate().set(IndexUserDO::getPwdResetTime, LocalDateTime.now()).eq(IndexUserDO::getId, userId).update();
-//        // 保存用户和角色关联
-//        userRoleService.assignRolesToUser(req.getRoleIds(), userId);
-//    }
-
     @Override
     @Transactional(rollbackFor = Exception.class)
     @CacheUpdate(key = "#id", value = "#req.nickname", name = CacheConstants.USER_KEY_PREFIX)
@@ -163,47 +146,28 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
         String phone = req.getPhone();
         CheckUtils.throwIf(StrUtil.isNotBlank(phone) && this.isPhoneExists(phone, id), errorMsgTemplate, phone);
         DisEnableStatusEnum newStatus = req.getStatus();
-        CheckUtils.throwIf(DisEnableStatusEnum.DISABLE.equals(newStatus) && ObjectUtil.equal(id, UserContextHolder
+        CheckUtils.throwIf(DisEnableStatusEnum.DISABLE.equals(newStatus) && ObjectUtil.equal(id, IndexUserContextHolder
             .getUserId()), "不允许禁用当前用户");
-        IndexUserDO oldUser = super.getById(id);
-//        if (Boolean.TRUE.equals(oldUser.getIsSystem())) {
-//            CheckUtils.throwIfEqual(DisEnableStatusEnum.DISABLE, newStatus, "[{}] 是系统内置用户，不允许禁用", oldUser
-//                .getNickname());
-//            Collection<Long> disjunctionRoleIds = CollUtil.disjunction(req.getRoleIds(), userRoleService
-//                .listRoleIdByUserId(id));
-//            CheckUtils.throwIfNotEmpty(disjunctionRoleIds, "[{}] 是系统内置用户，不允许变更角色", oldUser.getNickname());
-//        }
+
         // 更新信息
         IndexUserDO newUser = BeanUtil.toBean(req, IndexUserDO.class);
         newUser.setId(id);
         baseMapper.updateById(newUser);
-//        // 保存用户和角色关联
-//        boolean isSaveUserRoleSuccess = userRoleService.assignRolesToUser(req.getRoleIds(), id);
+
         // 如果禁用用户，则踢出在线用户
         if (DisEnableStatusEnum.DISABLE.equals(newStatus)) {
             onlineUserService.kickOut(id);
             return;
         }
-//        // 如果角色有变更，则更新在线用户权限信息
-//        if (isSaveUserRoleSuccess) {
-//            this.updateContext(id);
-//        }
+
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     @CacheInvalidate(key = "#ids", name = CacheConstants.USER_KEY_PREFIX, multi = true)
     public void delete(List<Long> ids) {
-        CheckUtils.throwIf(CollUtil.contains(ids, UserContextHolder.getUserId()), "不允许删除当前用户");
-        List<IndexUserDO> list = baseMapper.lambdaQuery()
-            .select(IndexUserDO::getNickname)
-            .in(IndexUserDO::getId, ids)
-            .list();
-//        Optional<IndexUserDO> isSystemData = list.stream().filter(IndexUserDO::getIsSystem).findFirst();
-//        CheckUtils.throwIf(isSystemData::isPresent, "所选用户 [{}] 是系统内置用户，不允许删除", isSystemData.orElseGet(IndexUserDO::new)
-//            .getNickname());
-//        // 删除用户和角色关联
-//        userRoleService.deleteByUserIds(ids);
+        CheckUtils.throwIf(CollUtil.contains(ids, IndexUserContextHolder.getUserId()), "不允许删除当前用户");
+
         // 删除历史密码
         userPasswordHistoryService.deleteByUserIds(ids);
         // 删除用户
@@ -259,15 +223,6 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
             .anyMatch(phone -> phone != null && !seenPhones.add(phone));
         CheckUtils.throwIf(hasDuplicatePhone, "存在重复手机，请检测数据");
 
-//        // 校验是否存在错误角色
-//        List<String> roleNames = validRowList.stream().map(UserImportRowReq::getRoleName).distinct().toList();
-//        int existRoleCount = roleService.countByNames(roleNames);
-//        CheckUtils.throwIf(existRoleCount < roleNames.size(), "存在错误角色，请检查数据");
-//        // 校验是否存在错误部门
-//        List<String> deptNames = validRowList.stream().map(UserImportRowReq::getDeptName).distinct().toList();
-//        int existDeptCount = deptService.countByNames(deptNames);
-//        CheckUtils.throwIf(existDeptCount < deptNames.size(), "存在错误部门，请检查数据");
-
         // 查询重复用户
         userImportResp
             .setDuplicateUserRows(countExistByField(validRowList, IndexUserImportRowReq::getUsername, IndexUserDO::getUsername, false));
@@ -315,21 +270,11 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
         // 基础数据准备
         Map<String, Long> userMap = existUserList.stream()
             .collect(Collectors.toMap(IndexUserDO::getUsername, IndexUserDO::getId));
-//        List<RoleDO> roleList = roleService.listByNames(importUserList.stream()
-//            .map(UserImportRowReq::getRoleName)
-//            .distinct()
-//            .toList());
-//        Map<String, Long> roleMap = roleList.stream().collect(Collectors.toMap(RoleDO::getName, RoleDO::getId));
-//        List<DeptDO> deptList = deptService.listByNames(importUserList.stream()
-//            .map(UserImportRowReq::getDeptName)
-//            .distinct()
-//            .toList());
-//        Map<String, Long> deptMap = deptList.stream().collect(Collectors.toMap(DeptDO::getName, DeptDO::getId));
 
         // 批量操作数据库集合
         List<IndexUserDO> insertList = new ArrayList<>();
         List<IndexUserDO> updateList = new ArrayList<>();
-        List<UserRoleDO> userRoleDOList = new ArrayList<>();
+
         // ID生成器
         IdGenerator idGenerator = DefaultIdGeneratorProvider.INSTANCE.getShare();
         for (IndexUserImportRowReq row : importUserList) {
@@ -341,17 +286,14 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
             userDO.setStatus(req.getDefaultStatus());
             userDO.setPwdResetTime(LocalDateTime.now());
             userDO.setGender(EnumUtil.getBy(GenderEnum::getDescription, row.getGender(), GenderEnum.UNKNOWN));
-//            userDO.setDeptId(deptMap.get(row.getDeptName()));
             // 修改 or 新增
             if (ImportPolicyEnum.UPDATE.validate(req.getDuplicateUser(), row.getUsername(), existUsernames)) {
                 userDO.setId(userMap.get(row.getUsername()));
                 updateList.add(userDO);
             } else {
                 userDO.setId(idGenerator.generate());
-//                userDO.setIsSystem(false);
                 insertList.add(userDO);
             }
-//            userRoleDOList.add(new UserRoleDO(userDO.getId(), roleMap.get(row.getRoleName())));
         }
         doImportUser(insertList, updateList);
         RedisUtils.delete(CacheConstants.DATA_IMPORT_KEY + req.getImportKey());
@@ -368,15 +310,6 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
             .update();
     }
 
-//    @Override
-//    public void updateRole(UserRoleUpdateReq updateReq, Long id) {
-//        super.getById(id);
-//        List<Long> roleIds = updateReq.getRoleIds();
-//        // 保存用户和角色关联
-//        userRoleService.assignRolesToUser(roleIds, id);
-//        // 更新用户上下文
-//        this.updateContext(id);
-//    }
 
     @Override
     public String updateAvatar(MultipartFile avatarFile, Long id) throws IOException {
@@ -468,10 +401,6 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
         return baseMapper.selectByEmail(email);
     }
 
-//    @Override
-//    public Long countByDeptIds(List<Long> deptIds) {
-//        return baseMapper.lambdaQuery().in(IndexUserDO::getDeptId, deptIds).count();
-//    }
 
     @Override
     @Cached(key = "#id", name = CacheConstants.USER_KEY_PREFIX, cacheType = CacheType.BOTH, syncLocal = true)
@@ -492,13 +421,12 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
     }
 
     @Override
-    public QueryWrapper<UserDO> buildQueryWrapper(UserQuery query) {
+    public QueryWrapper<IndexUserDO> buildQueryWrapper(IndexUserQuery query) {
         String description = query.getDescription();
         DisEnableStatusEnum status = query.getStatus();
         List<Date> createTimeList = query.getCreateTime();
-        Long deptId = query.getDeptId();
         List<Long> userIdList = query.getUserIds();
-        return new QueryWrapper<UserDO>().and(StrUtil.isNotBlank(description), q -> q.like("t1.username", description)
+        return new QueryWrapper<IndexUserDO>().and(StrUtil.isNotBlank(description), q -> q.like("t1.username", description)
             .or()
             .like("t1.nickname", description)
             .or()
@@ -506,14 +434,6 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
             .eq(null != status, "t1.status", status)
             .between(CollUtil.isNotEmpty(createTimeList), "t1.create_time", CollUtil.getFirst(createTimeList), CollUtil
                 .getLast(createTimeList))
-            .and(null != deptId && !SysConstants.SUPER_DEPT_ID.equals(deptId), q -> {
-                List<Long> deptIdList = deptService.listChildren(deptId)
-                    .stream()
-                    .map(DeptDO::getId)
-                    .collect(Collectors.toList());
-                deptIdList.add(deptId);
-                q.in("t1.dept_id", deptIdList);
-            })
             .in(CollUtil.isNotEmpty(userIdList), "t1.id", userIdList);
     }
 
@@ -529,11 +449,8 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
         }
         if (CollUtil.isNotEmpty(updateList)) {
             this.updateBatchById(updateList);
-//            userRoleService.deleteByUserIds(updateList.stream().map(UserDO::getId).toList());
         }
-//        if (CollUtil.isNotEmpty(userRoleDOList)) {
-//            userRoleService.saveBatch(userRoleDOList);
-//        }
+
     }
 
     /**
@@ -712,11 +629,11 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
      * @param id ID
      */
     private void updateContext(Long id) {
-        UserContext userContext = UserContextHolder.getContext(id);
+        IndexUserContext userContext = IndexUserContextHolder.getContext(id);
         if (null != userContext) {
 //            userContext.setRoles(roleService.listByUserId(id));
 //            userContext.setPermissions(roleService.listPermissionByUserId(id));
-            UserContextHolder.setContext(userContext);
+            IndexUserContextHolder.setContext(userContext);
         }
     }
 }

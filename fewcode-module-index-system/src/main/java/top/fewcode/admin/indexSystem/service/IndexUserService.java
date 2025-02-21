@@ -16,23 +16,22 @@
 package top.fewcode.admin.indexSystem.service;
 
 import com.alicp.jetcache.anno.CacheUpdate;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import top.continew.starter.data.mp.service.IService;
+import top.continew.starter.extension.crud.service.BaseService;
 import top.fewcode.admin.common.constant.CacheConstants;
 import top.fewcode.admin.indexSystem.model.entity.IndexUserDO;
 import top.fewcode.admin.indexSystem.model.query.IndexUserQuery;
-import top.fewcode.admin.indexSystem.model.req.user.*;
+import top.fewcode.admin.indexSystem.model.req.user.IndexUserBasicInfoUpdateReq;
+import top.fewcode.admin.indexSystem.model.req.user.IndexUserImportReq;
+import top.fewcode.admin.indexSystem.model.req.user.IndexUserPasswordResetReq;
+import top.fewcode.admin.indexSystem.model.req.user.IndexUserReq;
 import top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp;
 import top.fewcode.admin.indexSystem.model.resp.user.IndexUserImportParseResp;
 import top.fewcode.admin.indexSystem.model.resp.user.IndexUserImportResp;
 import top.fewcode.admin.indexSystem.model.resp.user.IndexUserResp;
-import top.continew.starter.data.mp.service.IService;
-import top.continew.starter.extension.crud.service.BaseService;
-import top.fewcode.admin.system.model.entity.UserDO;
-import top.fewcode.admin.system.model.query.UserQuery;
-import top.fewcode.admin.system.model.req.user.UserReq;
 
 import java.io.IOException;
 
@@ -80,14 +79,6 @@ public interface IndexUserService extends BaseService<IndexUserResp, IndexUserDe
      */
     void resetPassword(IndexUserPasswordResetReq req, Long id);
 
-
-//    /**
-//     * 修改角色
-//     *
-//     * @param updateReq 修改信息
-//     * @param id        ID
-//     */
-//    void updateRole(UserRoleUpdateReq updateReq, Long id);
 
     /**
      * 上传头像
@@ -167,13 +158,4 @@ public interface IndexUserService extends BaseService<IndexUserResp, IndexUserDe
      */
     IndexUserDO  getByEmail(String email);
 
-//    /**
-//     * 根据部门 ID 列表查询
-//     *
-//     * @param deptIds 部门 ID 列表
-//     * @return 用户数量
-//     */
-//    Long countByDeptIds(List<Long> deptIds);
-
-    QueryWrapper<UserDO> buildQueryWrapper(UserQuery query);
 }

@@ -50,4 +50,6 @@
     </select>
     <select id="selectIndexUserPage"
             resultType="top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp"></select>
+    <select id="selectIndexUserList"
+            resultType="top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp"></select>
 </mapper>

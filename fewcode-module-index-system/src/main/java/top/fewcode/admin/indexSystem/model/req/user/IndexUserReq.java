@@ -23,11 +23,11 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
+import top.continew.starter.extension.crud.model.req.BaseReq;
+import top.continew.starter.extension.crud.validation.CrudValidationGroup;
 import top.fewcode.admin.common.constant.RegexConstants;
 import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.fewcode.admin.common.enums.GenderEnum;
-import top.continew.starter.extension.crud.model.req.BaseReq;
-import top.continew.starter.extension.crud.validation.CrudValidationGroup;
 
 import java.io.Serial;
 import java.util.List;
@@ -39,7 +39,7 @@ import java.util.List;
  * @since 2023/2/20 21:03
  */
 @Data
-@Schema(description = "创建或修改用户参数")
+@Schema(description = "创建或修改前台用户参数")
 public class IndexUserReq extends BaseReq {
 
     @Serial
@@ -48,7 +48,7 @@ public class IndexUserReq extends BaseReq {
     /**
      * 用户名
      */
-    @Schema(description = "用户名", example = "zhangsan")
+    @Schema(description = "前台用户名", example = "zhangsan")
     @NotBlank(message = "用户名不能为空")
     @Pattern(regexp = RegexConstants.USERNAME, message = "用户名长度为 4-64 个字符，支持大小写字母、数字、下划线，以字母开头")
     private String username;

@@ -30,17 +30,17 @@ import top.continew.starter.cache.redisson.util.RedisUtils;
 import top.continew.starter.core.util.ExceptionUtils;
 import top.continew.starter.core.validation.ValidationUtils;
 import top.continew.starter.log.core.annotation.Log;
+import top.fewcode.admin.common.constant.CacheConstants;
+import top.fewcode.admin.common.constant.SysConstants;
+import top.fewcode.admin.common.context.IndexUserContext;
+import top.fewcode.admin.common.context.IndexUserContextHolder;
+import top.fewcode.admin.common.util.SecureUtils;
 import top.fewcode.admin.index.model.req.IndexAccountLoginReq;
 import top.fewcode.admin.index.model.req.IndexEmailLoginReq;
 import top.fewcode.admin.index.model.req.IndexPhoneLoginReq;
 import top.fewcode.admin.index.model.resp.IndexLoginResp;
 import top.fewcode.admin.index.model.resp.IndexUserInfoResp;
 import top.fewcode.admin.index.service.IndexLoginService;
-import top.fewcode.admin.common.constant.CacheConstants;
-import top.fewcode.admin.common.constant.SysConstants;
-import top.fewcode.admin.common.context.UserContext;
-import top.fewcode.admin.common.context.UserContextHolder;
-import top.fewcode.admin.common.util.SecureUtils;
 import top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp;
 import top.fewcode.admin.indexSystem.service.IndexUserService;
 import top.fewcode.admin.system.service.OptionService;
@@ -65,7 +65,7 @@ public class IndexLoginController {
     private final IndexUserService indexUserService;
 
     @SaIgnore
-    @Operation(summary = "账号登录", description = "根据账号和密码进行登录认证")
+    @Operation(summary = "前台账号登录", description = "根据账号和密码进行登录认证")
     @PostMapping("/login")
     public IndexLoginResp accountLogin(@Validated @RequestBody IndexAccountLoginReq loginReq, HttpServletRequest request) {
         // 校验验证码
@@ -114,7 +114,7 @@ public class IndexLoginController {
         return IndexLoginResp.builder().token(token).build();
     }
 
-    @Operation(summary = "用户退出", description = "注销用户的当前登录")
+    @Operation(summary = "前台用户退出", description = "注销用户的当前登录")
     @Parameter(name = "Authorization", description = "令牌", required = true, example = "Bearer xxxx-xxxx-xxxx-xxxx", in = ParameterIn.HEADER)
     @PostMapping("/logout")
     public Object logout() {
@@ -127,19 +127,10 @@ public class IndexLoginController {
     @Operation(summary = "获取用户信息", description = "获取登录用户信息")
     @GetMapping("/user/info")
     public IndexUserInfoResp getUserInfo() {
-        UserContext userContext = UserContextHolder.getContext();
+        IndexUserContext userContext = IndexUserContextHolder.getContext();
         IndexUserDetailResp userDetailResp = indexUserService.get(userContext.getId());
         IndexUserInfoResp userInfoResp = BeanUtil.copyProperties(userDetailResp, IndexUserInfoResp.class);
-        userInfoResp.setPermissions(userContext.getPermissions());
-        userInfoResp.setRoles(userContext.getRoleCodes());
         userInfoResp.setPwdExpired(userContext.isPasswordExpired());
         return userInfoResp;
     }
-
-//    @Log(ignore = true)
-//    @Operation(summary = "获取路由信息", description = "获取登录用户的路由信息")
-//    @GetMapping("/user/route")
-//    public List<RouteResp> listRoute() {
-//        return loginService.buildRouteTree(UserContextHolder.getUserId());
-//    }
 }

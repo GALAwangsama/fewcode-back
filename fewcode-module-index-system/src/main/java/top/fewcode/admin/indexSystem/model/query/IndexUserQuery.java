@@ -28,13 +28,13 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 用户查询条件
+ * 前台用户查询条件
  *
  * @author Charles7c
  * @since 2023/2/20 21:01
  */
 @Data
-@Schema(description = "用户查询条件")
+@Schema(description = "前台用户查询条件")
 public class IndexUserQuery implements Serializable {
 
     @Serial
@@ -61,8 +61,8 @@ public class IndexUserQuery implements Serializable {
     private List<Date> createTime;
 
     /**
-     * 用户 ID 列表
+     * 前台用户 ID 列表
      */
-    @Schema(description = "用户 ID 列表", example = "[1,2,3]")
+    @Schema(description = "前台用户 ID 列表", example = "[1,2,3]")
     private List<Long> userIds;
 }

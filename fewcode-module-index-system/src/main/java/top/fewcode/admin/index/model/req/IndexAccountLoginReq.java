@@ -36,10 +36,10 @@ public class IndexAccountLoginReq implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 用户名
+     * 前台用户名
      */
-    @Schema(description = "用户名", example = "zhangsan")
-    @NotBlank(message = "用户名不能为空")
+    @Schema(description = "前台用户名", example = "zhangsan")
+    @NotBlank(message = "前台用户名不能为空")
     private String username;
 
     /**

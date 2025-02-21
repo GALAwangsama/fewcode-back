@@ -22,9 +22,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
-import top.fewcode.admin.common.constant.RegexConstants;
 import top.continew.starter.extension.crud.model.req.BaseReq;
 import top.continew.starter.extension.crud.validation.CrudValidationGroup;
+import top.fewcode.admin.common.constant.RegexConstants;
 
 import java.io.Serial;
 
@@ -35,7 +35,7 @@ import java.io.Serial;
  * @since 2024-6-17 16:42
  */
 @Data
-@Schema(description = "用户导入行数据")
+@Schema(description = "前台用户导入行数据")
 public class IndexUserImportRowReq extends BaseReq {
 
     @Serial
@@ -44,7 +44,7 @@ public class IndexUserImportRowReq extends BaseReq {
     /**
      * 用户名
      */
-    @NotBlank(message = "用户名不能为空")
+    @NotBlank(message = "前台用户名不能为空")
     @Pattern(regexp = RegexConstants.USERNAME, message = "用户名长度为 4-64 个字符，支持大小写字母、数字、下划线，以字母开头")
     private String username;
 

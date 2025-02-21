@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
  * @since 2024-06-18 14:37
  */
 @Data
-@Schema(description = "用户导入结果")
+@Schema(description = "前台用户导入结果")
 @AllArgsConstructor
 @NoArgsConstructor
 public class IndexUserImportResp {

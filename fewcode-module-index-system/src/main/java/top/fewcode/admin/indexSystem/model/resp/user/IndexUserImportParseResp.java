@@ -32,7 +32,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "用户导入解析结果")
+@Schema(description = "前台用户导入解析结果")
 public class IndexUserImportParseResp implements Serializable {
 
     @Serial

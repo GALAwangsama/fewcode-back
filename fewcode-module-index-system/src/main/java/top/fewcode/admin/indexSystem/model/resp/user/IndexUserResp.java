@@ -18,13 +18,13 @@ package top.fewcode.admin.indexSystem.model.resp.user;
 import cn.crane4j.annotation.Assemble;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import top.fewcode.admin.common.constant.ContainerConstants;
-import top.fewcode.admin.common.context.UserContextHolder;
-import top.fewcode.admin.common.enums.DisEnableStatusEnum;
-import top.fewcode.admin.common.enums.GenderEnum;
 import top.continew.starter.extension.crud.model.resp.BaseDetailResp;
 import top.continew.starter.security.mask.annotation.JsonMask;
 import top.continew.starter.security.mask.enums.MaskType;
+import top.fewcode.admin.common.constant.ContainerConstants;
+import top.fewcode.admin.common.context.IndexUserContextHolder;
+import top.fewcode.admin.common.enums.DisEnableStatusEnum;
+import top.fewcode.admin.common.enums.GenderEnum;
 
 import java.io.Serial;
 import java.util.Objects;
@@ -36,7 +36,7 @@ import java.util.Objects;
  * @since 2023/2/20 21:08
  */
 @Data
-@Schema(description = "用户信息")
+@Schema(description = "前台用户信息")
 @Assemble(key = "id", prop = ":roleIds", sort = 0, container = ContainerConstants.USER_ROLE_ID_LIST)
 public class IndexUserResp extends BaseDetailResp {
 
@@ -46,7 +46,7 @@ public class IndexUserResp extends BaseDetailResp {
     /**
      * 用户名
      */
-    @Schema(description = "用户名", example = "zhangsan")
+    @Schema(description = "前台用户名", example = "zhangsan")
     private String username;
 
     /**
@@ -98,6 +98,6 @@ public class IndexUserResp extends BaseDetailResp {
 
     @Override
     public Boolean getDisabled() {
-        return Objects.equals(this.getId(), UserContextHolder.getUserId());
+        return Objects.equals(this.getId(), IndexUserContextHolder.getUserId());
     }
 }

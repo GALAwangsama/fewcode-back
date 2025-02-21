@@ -44,12 +44,6 @@ import org.redisson.api.RateIntervalUnit;
 import org.springframework.http.HttpHeaders;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import top.fewcode.admin.index.model.resp.IndexCaptchaResp;
-import top.fewcode.admin.common.config.properties.CaptchaProperties;
-import top.fewcode.admin.common.constant.CacheConstants;
-import top.fewcode.admin.common.constant.SysConstants;
-import top.fewcode.admin.system.enums.OptionCategoryEnum;
-import top.fewcode.admin.system.service.OptionService;
 import top.continew.starter.cache.redisson.util.RedisUtils;
 import top.continew.starter.captcha.graphic.core.GraphicCaptchaService;
 import top.continew.starter.core.autoconfigure.project.ProjectProperties;
@@ -62,6 +56,12 @@ import top.continew.starter.security.limiter.annotation.RateLimiter;
 import top.continew.starter.security.limiter.annotation.RateLimiters;
 import top.continew.starter.security.limiter.enums.LimitType;
 import top.continew.starter.web.model.R;
+import top.fewcode.admin.auth.model.resp.CaptchaResp;
+import top.fewcode.admin.common.config.properties.CaptchaProperties;
+import top.fewcode.admin.common.constant.CacheConstants;
+import top.fewcode.admin.common.constant.SysConstants;
+import top.fewcode.admin.system.enums.OptionCategoryEnum;
+import top.fewcode.admin.system.service.OptionService;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -110,10 +110,10 @@ public class CaptchaController {
     @Log(ignore = true)
     @Operation(summary = "获取图片验证码", description = "获取图片验证码（Base64编码，带图片格式：data:image/gif;base64）")
     @GetMapping("/image")
-    public IndexCaptchaResp getImageCaptcha() {
+    public CaptchaResp getImageCaptcha() {
         int loginCaptchaEnabled = optionService.getValueByCode2Int("LOGIN_CAPTCHA_ENABLED");
         if (SysConstants.NO.equals(loginCaptchaEnabled)) {
-            return IndexCaptchaResp.builder().isEnabled(false).build();
+            return CaptchaResp.builder().isEnabled(false).build();
         }
         String uuid = IdUtil.fastUUID();
         String captchaKey = CacheConstants.CAPTCHA_KEY_PREFIX + uuid;
@@ -121,7 +121,7 @@ public class CaptchaController {
         long expireTime = LocalDateTimeUtil.toEpochMilli(LocalDateTime.now()
             .plusMinutes(captchaProperties.getExpirationInMinutes()));
         RedisUtils.set(captchaKey, captcha.text(), Duration.ofMinutes(captchaProperties.getExpirationInMinutes()));
-        return IndexCaptchaResp.of(uuid, captcha.toBase64(), expireTime);
+        return CaptchaResp.of(uuid, captcha.toBase64(), expireTime);
     }
 
     /**

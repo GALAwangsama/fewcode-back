@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.fewcode.admin.appSystem.mapper.AppUserMapper">
+
+    <sql id="selectUser">
+        SELECT
+           id,
+           create_user,
+           create_time,
+           update_user,
+           update_time,
+           username,
+           nickname,
+           password,
+           gender,
+           email,
+           phone,
+           avatar,
+           description,
+           status
+        FROM sys_index_user as t1
+    </sql>
+
+    <select id="selectUserPage" resultType="top.fewcode.admin.system.model.resp.user.UserDetailResp">
+        <include refid="selectUser" />
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectUserList" resultType="top.fewcode.admin.system.model.resp.user.UserDetailResp">
+        <include refid="selectUser" />
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectCountByEmail" resultType="java.lang.Long">
+        SELECT count(*)
+        FROM sys_index_user
+        WHERE email = #{email}
+          <if test="id != null">
+            AND id != #{id}
+          </if>
+    </select>
+
+    <select id="selectCountByPhone" resultType="java.lang.Long">
+        SELECT count(*)
+        FROM sys_index_user
+        WHERE phone = #{phone}
+        <if test="id != null">
+            AND id != #{id}
+        </if>
+    </select>
+    <select id="selectIndexUserPage"
+            resultType="top.fewcode.admin.appSystem.model.resp.user.AppUserDetailResp"></select>
+</mapper>
