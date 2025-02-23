@@ -224,6 +224,9 @@ auth:
       - /auth/logout
       - /system/user/password
 
+      - /index/user/info
+      - /index/logout
+
 --- ### 服务器配置
 server:
   servlet:

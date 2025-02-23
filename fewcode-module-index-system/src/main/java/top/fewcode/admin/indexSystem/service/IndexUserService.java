@@ -24,10 +24,7 @@ import top.continew.starter.extension.crud.service.BaseService;
 import top.fewcode.admin.common.constant.CacheConstants;
 import top.fewcode.admin.indexSystem.model.entity.IndexUserDO;
 import top.fewcode.admin.indexSystem.model.query.IndexUserQuery;
-import top.fewcode.admin.indexSystem.model.req.user.IndexUserBasicInfoUpdateReq;
-import top.fewcode.admin.indexSystem.model.req.user.IndexUserImportReq;
-import top.fewcode.admin.indexSystem.model.req.user.IndexUserPasswordResetReq;
-import top.fewcode.admin.indexSystem.model.req.user.IndexUserReq;
+import top.fewcode.admin.indexSystem.model.req.user.*;
 import top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp;
 import top.fewcode.admin.indexSystem.model.resp.user.IndexUserImportParseResp;
 import top.fewcode.admin.indexSystem.model.resp.user.IndexUserImportResp;
@@ -158,4 +155,5 @@ public interface IndexUserService extends BaseService<IndexUserResp, IndexUserDe
      */
     IndexUserDO  getByEmail(String email);
 
+    Boolean register(IndexUserRegisterReq registerReq, String rawPassword);
 }

@@ -27,9 +27,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import top.continew.starter.cache.redisson.util.RedisUtils;
+import top.continew.starter.core.exception.BusinessException;
 import top.continew.starter.core.util.ExceptionUtils;
 import top.continew.starter.core.validation.ValidationUtils;
 import top.continew.starter.log.core.annotation.Log;
+import top.continew.starter.web.model.R;
 import top.fewcode.admin.common.constant.CacheConstants;
 import top.fewcode.admin.common.constant.SysConstants;
 import top.fewcode.admin.common.context.IndexUserContext;
@@ -41,6 +43,7 @@ import top.fewcode.admin.index.model.req.IndexPhoneLoginReq;
 import top.fewcode.admin.index.model.resp.IndexLoginResp;
 import top.fewcode.admin.index.model.resp.IndexUserInfoResp;
 import top.fewcode.admin.index.service.IndexLoginService;
+import top.fewcode.admin.indexSystem.model.req.user.IndexUserRegisterReq;
 import top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp;
 import top.fewcode.admin.indexSystem.service.IndexUserService;
 import top.fewcode.admin.system.service.OptionService;
@@ -51,7 +54,7 @@ import top.fewcode.admin.system.service.OptionService;
  * @author GALAwang
  * @since 2022/12/21 20:37
  */
-@Log(module = "登录")
+@Log(module = "前台登录")
 @Tag(name = "前台认证 API")
 @RestController
 @RequiredArgsConstructor
@@ -133,4 +136,35 @@ public class IndexLoginController {
         userInfoResp.setPwdExpired(userContext.isPasswordExpired());
         return userInfoResp;
     }
+
+    @SaIgnore
+    @Operation(summary = "前台用户注册", description = "根据用户信息进行注册")
+    @PostMapping("/register")
+    public R<String> register(@Validated @RequestBody IndexUserRegisterReq registerReq) {
+        // 校验验证码
+        int loginCaptchaEnabled = optionService.getValueByCode2Int("LOGIN_CAPTCHA_ENABLED");
+        if (SysConstants.YES.equals(loginCaptchaEnabled)) {
+            ValidationUtils.throwIfBlank(registerReq.getCaptcha(), "验证码不能为空");
+            ValidationUtils.throwIfBlank(registerReq.getUuid(), "验证码标识不能为空");
+            String captchaKey = CacheConstants.CAPTCHA_KEY_PREFIX + registerReq.getUuid();
+            String captcha = RedisUtils.get(captchaKey);
+            ValidationUtils.throwIfBlank(captcha, CAPTCHA_EXPIRED);
+            RedisUtils.delete(captchaKey);
+            ValidationUtils.throwIfNotEqualIgnoreCase(registerReq.getCaptcha(), captcha, CAPTCHA_ERROR);
+        }
+
+        // 密码加密
+        String rawPassword = ExceptionUtils.exToNull(() -> SecureUtils.decryptByRsaPrivateKey(registerReq.getPassword()));
+        ValidationUtils.throwIfBlank(rawPassword, "密码解密失败");
+        Boolean result = indexUserService.register(registerReq, rawPassword);
+
+        if (result) {
+            return R.ok("用户注册成功");
+        } else {
+            throw new BusinessException("用户注册失败");
+        }
+    }
+
+
+
 }

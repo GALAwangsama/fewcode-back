@@ -383,6 +383,9 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
     public Long add(IndexUserDO user) {
         user.setStatus(DisEnableStatusEnum.ENABLE);
         baseMapper.insert(user);
+        if (user.getId() == null) {
+            return null;
+        }
         return user.getId();
     }
 
@@ -399,6 +402,30 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
     @Override
     public IndexUserDO getByEmail(String email) {
         return baseMapper.selectByEmail(email);
+    }
+
+    @Override
+    public Boolean register(IndexUserRegisterReq registerReq, String rawPassword) {
+        //校验是否存在
+        IndexUserReq indexUserReq = new IndexUserReq();
+        BeanUtils.copyProperties(registerReq, indexUserReq);
+        this.beforeAdd(indexUserReq);
+
+        IndexUserDO user = new IndexUserDO();
+        user.setUsername(registerReq.getUsername());
+        user.setPassword(passwordEncoder.encode(rawPassword)); // 使用 PasswordEncoder 加密密码
+        user.setEmail(registerReq.getEmail());
+        user.setPhone(registerReq.getPhone());
+        user.setNickname(registerReq.getNickname());
+        user.setGender(registerReq.getGender());
+        user.setStatus(DisEnableStatusEnum.ENABLE); // 设置用户状态为启用
+        user.setCreateTime(LocalDateTime.now());
+        user.setDescription(registerReq.getDescription());
+        user.setPwdResetTime(LocalDateTime.now());
+        user.setAvatar(null);
+
+        Long userId = this.add(user);
+        return userId != null && userId > 0;
     }
 
 
