@@ -28,6 +28,7 @@
         <module>fewcode-webapi</module>
         <module>fewcode-module-system</module>
         <module>fewcode-module-index-system</module>
+        <module>fewcode-module-app-system</module>
         <module>fewcode-plugin</module>
         <module>fewcode-common</module>
 

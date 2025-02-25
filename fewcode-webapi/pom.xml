@@ -44,6 +44,12 @@
             <artifactId>fewcode-module-index-system</artifactId>
         </dependency>
 
+        <!-- 小程序系统管理模块（用户管理） -->
+        <dependency>
+            <groupId>top.fewcode</groupId>
+            <artifactId>fewcode-module-app-system</artifactId>
+        </dependency>
+
         <!-- 能力开放插件（后续会改造为独立插件） -->
         <dependency>
             <groupId>top.fewcode</groupId>

@@ -45,9 +45,6 @@ build/
 *.patch
 *.tmp
 
-# Ignore .style directory
-.style/
-
 # Ignore .github directory
 .github/
 
