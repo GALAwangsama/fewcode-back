@@ -21,11 +21,11 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
+import top.continew.starter.extension.crud.model.req.BaseReq;
 import top.fewcode.admin.common.constant.RegexConstants;
 import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.fewcode.admin.system.enums.StorageTypeEnum;
 import top.fewcode.admin.system.validation.ValidationGroup;
-import top.continew.starter.extension.crud.model.req.BaseReq;
 
 import java.io.Serial;
 

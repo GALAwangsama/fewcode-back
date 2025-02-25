@@ -32,10 +32,11 @@ import top.continew.starter.core.util.ExceptionUtils;
 import top.continew.starter.core.validation.ValidationUtils;
 import top.continew.starter.log.core.annotation.Log;
 import top.continew.starter.web.model.R;
+import top.fewcode.admin.auth.model.resp.RouteResp;
 import top.fewcode.admin.common.constant.CacheConstants;
 import top.fewcode.admin.common.constant.SysConstants;
-import top.fewcode.admin.common.context.IndexUserContext;
-import top.fewcode.admin.common.context.IndexUserContextHolder;
+import top.fewcode.admin.common.context.UserContext;
+import top.fewcode.admin.common.context.UserContextHolder;
 import top.fewcode.admin.common.util.SecureUtils;
 import top.fewcode.admin.index.model.req.IndexAccountLoginReq;
 import top.fewcode.admin.index.model.req.IndexEmailLoginReq;
@@ -47,6 +48,8 @@ import top.fewcode.admin.indexSystem.model.req.user.IndexUserRegisterReq;
 import top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp;
 import top.fewcode.admin.indexSystem.service.IndexUserService;
 import top.fewcode.admin.system.service.OptionService;
+
+import java.util.List;
 
 /**
  * 前台认证 API
@@ -130,7 +133,7 @@ public class IndexLoginController {
     @Operation(summary = "获取用户信息", description = "获取登录用户信息")
     @GetMapping("/user/info")
     public IndexUserInfoResp getUserInfo() {
-        IndexUserContext userContext = IndexUserContextHolder.getContext();
+        UserContext userContext = UserContextHolder.getContext();
         IndexUserDetailResp userDetailResp = indexUserService.get(userContext.getId());
         IndexUserInfoResp userInfoResp = BeanUtil.copyProperties(userDetailResp, IndexUserInfoResp.class);
         userInfoResp.setPwdExpired(userContext.isPasswordExpired());
@@ -165,6 +168,12 @@ public class IndexLoginController {
         }
     }
 
-
+    //TODO 路由权限认证，不需要可删
+    @Log(ignore = true)
+    @Operation(summary = "获取路由信息", description = "获取登录用户的路由信息")
+    @GetMapping("/user/route")
+    public List<RouteResp> listRoute() {
+        return loginService.buildRouteTree(UserContextHolder.getUserId());
+    }
 
 }

@@ -25,15 +25,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import top.continew.starter.extension.crud.annotation.CrudRequestMapping;
+import top.continew.starter.extension.crud.enums.Api;
+import top.fewcode.admin.common.base.BaseController;
 import top.fewcode.admin.open.model.query.AppQuery;
 import top.fewcode.admin.open.model.req.AppReq;
 import top.fewcode.admin.open.model.resp.AppDetailResp;
 import top.fewcode.admin.open.model.resp.AppResp;
 import top.fewcode.admin.open.model.resp.AppSecretResp;
 import top.fewcode.admin.open.service.AppService;
-import top.continew.starter.extension.crud.annotation.CrudRequestMapping;
-import top.fewcode.admin.common.base.BaseController;
-import top.continew.starter.extension.crud.enums.Api;
 
 /**
  * 应用管理 API

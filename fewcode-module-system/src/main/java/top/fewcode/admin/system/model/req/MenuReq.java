@@ -21,9 +21,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
+import top.continew.starter.extension.crud.model.req.BaseReq;
 import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.fewcode.admin.system.enums.MenuTypeEnum;
-import top.continew.starter.extension.crud.model.req.BaseReq;
 
 import java.io.Serial;
 

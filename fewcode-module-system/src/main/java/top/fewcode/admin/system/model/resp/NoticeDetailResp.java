@@ -19,8 +19,8 @@ import com.alibaba.excel.annotation.ExcelIgnoreUnannotated;
 import com.alibaba.excel.annotation.ExcelProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import top.fewcode.admin.system.enums.NoticeScopeEnum;
 import top.continew.starter.extension.crud.model.resp.BaseDetailResp;
+import top.fewcode.admin.system.enums.NoticeScopeEnum;
 
 import java.io.Serial;
 import java.time.LocalDateTime;

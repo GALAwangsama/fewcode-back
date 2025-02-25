@@ -20,16 +20,14 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
-
 import jakarta.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import top.fewcode.admin.system.model.query.RoleQuery;
 import top.continew.starter.extension.crud.annotation.CrudRequestMapping;
-import top.fewcode.admin.common.base.BaseController;
 import top.continew.starter.extension.crud.enums.Api;
+import top.fewcode.admin.common.base.BaseController;
+import top.fewcode.admin.system.model.query.RoleQuery;
 import top.fewcode.admin.system.model.req.RoleReq;
 import top.fewcode.admin.system.model.resp.RoleDetailResp;
 import top.fewcode.admin.system.model.resp.RoleResp;

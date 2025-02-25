@@ -104,16 +104,24 @@
 </template>
 
 <script setup lang="ts">
-import ${classNamePrefix}AddModal from './${classNamePrefix}AddModal.vue'
-import ${classNamePrefix}DetailDrawer from './${classNamePrefix}DetailDrawer.vue'
-import { type ${classNamePrefix}Resp, type ${classNamePrefix}Query, delete${classNamePrefix}, export${classNamePrefix}, list${classNamePrefix} } from '@/apis/${apiModuleName}/${apiName}'
-import type { TableInstanceColumns } from '@/components/GiTable/type'
-import { useDownload, useTable } from '@/hooks'
-import { useDict } from '@/hooks/app'
-import { isMobile } from '@/utils'
-import has from '@/utils/has'
+  import ${classNamePrefix}AddModal from './'
+  import ${classNamePrefix}DetailDrawer from './'
+  import {useDownload, useTable} from '@/hooks'
+  import {useDict} from '@/hooks/app'
+  import {isMobile} from '@/utils'
+  import has from '@/utils/has'
+  import {
+        type
+        ${classNamePrefix}Resp,
+        type
+        ${classNamePrefix}Query,
+        delete${classNamePrefix},
+        export${classNamePrefix},
+        list${classNamePrefix}
+    } from '@/apis/${apiModuleName}/${apiName}'
+    import type {TableInstanceColumns} from '@/components/GiTable/type'
 
-defineOptions({ name: '${classNamePrefix}' })
+    defineOptions({name: '${classNamePrefix}'})
 
 <#if hasDictField>
 const { <#list dictCodes as dictCode>${dictCode}<#if dictCode_has_next>,</#if></#list> } = useDict(<#list dictCodes as dictCode>'${dictCode}'<#if dictCode_has_next>,</#if></#list>)

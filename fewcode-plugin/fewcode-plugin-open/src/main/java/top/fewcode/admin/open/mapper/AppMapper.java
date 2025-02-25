@@ -18,8 +18,8 @@ package top.fewcode.admin.open.mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import top.continew.starter.data.mp.base.BaseMapper;
-import top.fewcode.admin.open.model.entity.AppDO;
 import top.continew.starter.security.crypto.annotation.FieldEncrypt;
+import top.fewcode.admin.open.model.entity.AppDO;
 
 /**
  * 应用 Mapper

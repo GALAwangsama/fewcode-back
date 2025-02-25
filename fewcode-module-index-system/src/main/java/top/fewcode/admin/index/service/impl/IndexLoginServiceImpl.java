@@ -19,6 +19,9 @@ import cn.dev33.satoken.stp.SaLoginConfig;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.lang.tree.Tree;
+import cn.hutool.core.lang.tree.TreeNodeConfig;
+import cn.hutool.core.lang.tree.TreeUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.extra.servlet.JakartaServletUtil;
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,27 +32,34 @@ import org.springframework.stereotype.Service;
 import top.continew.starter.cache.redisson.util.RedisUtils;
 import top.continew.starter.core.autoconfigure.project.ProjectProperties;
 import top.continew.starter.core.validation.CheckUtils;
+import top.continew.starter.extension.crud.annotation.TreeField;
+import top.continew.starter.extension.crud.autoconfigure.CrudProperties;
 import top.continew.starter.messaging.websocket.util.WebSocketUtils;
 import top.continew.starter.web.util.SpringWebUtils;
+import top.fewcode.admin.auth.model.resp.RouteResp;
 import top.fewcode.admin.common.constant.CacheConstants;
 import top.fewcode.admin.common.constant.SysConstants;
-import top.fewcode.admin.common.context.IndexUserContext;
-import top.fewcode.admin.common.context.IndexUserContextHolder;
+import top.fewcode.admin.common.context.UserContext;
+import top.fewcode.admin.common.context.UserContextHolder;
 import top.fewcode.admin.common.context.UserExtraContext;
 import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.fewcode.admin.index.service.IndexLoginService;
 import top.fewcode.admin.indexSystem.model.entity.IndexUserDO;
 import top.fewcode.admin.indexSystem.service.IndexUserService;
+import top.fewcode.admin.system.enums.MenuTypeEnum;
 import top.fewcode.admin.system.enums.MessageTemplateEnum;
 import top.fewcode.admin.system.enums.MessageTypeEnum;
 import top.fewcode.admin.system.enums.PasswordPolicyEnum;
 import top.fewcode.admin.system.model.req.MessageReq;
+import top.fewcode.admin.system.model.resp.MenuResp;
+import top.fewcode.admin.system.service.MenuService;
 import top.fewcode.admin.system.service.MessageService;
 import top.fewcode.admin.system.service.OptionService;
 
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 /**
  * 登录业务实现
@@ -67,7 +77,8 @@ public class IndexLoginServiceImpl implements IndexLoginService {
     private final IndexUserService indexUserService;
     private final OptionService optionService;
     private final MessageService messageService;
-
+    private final MenuService menuService;
+    private final CrudProperties crudProperties;
 
     @Override
     public String accountLogin(String username, String password, HttpServletRequest request) {
@@ -102,16 +113,15 @@ public class IndexLoginServiceImpl implements IndexLoginService {
      * @return 令牌
      */
     private String login(IndexUserDO user) {
-        Long userId = user.getId();
         CompletableFuture<Integer> passwordExpirationDaysFuture = CompletableFuture.supplyAsync(() -> optionService
                 .getValueByCode2Int(PasswordPolicyEnum.PASSWORD_EXPIRATION_DAYS.name()));
         CompletableFuture.allOf(passwordExpirationDaysFuture);
-        IndexUserContext userContext = new IndexUserContext(passwordExpirationDaysFuture.join());
+        UserContext userContext = new UserContext(passwordExpirationDaysFuture.join());
         BeanUtil.copyProperties(user, userContext);
         // 登录并缓存用户信息
         StpUtil.login(userContext.getId(), SaLoginConfig.setExtraData(BeanUtil
                 .beanToMap(new UserExtraContext(SpringWebUtils.getRequest()))));
-        IndexUserContextHolder.setContext(userContext);
+        UserContextHolder.setContext(userContext);
         return StpUtil.getTokenValue();
     }
 
@@ -170,5 +180,39 @@ public class IndexLoginServiceImpl implements IndexLoginService {
         for (String token : tokenList) {
             WebSocketUtils.sendMessage(token, "1");
         }
+    }
+
+    //TODO 路由树构建（进行诱骗前端，正式不需要权限控制则可以酌情删除）
+    @Override
+    public List<RouteResp> buildRouteTree(Long userId) {
+        // 查询所有菜单数据
+        List<MenuResp> menuList = menuService.listAll();
+
+        // 过滤掉按钮类型的菜单，只保留页面或目录
+        menuList = menuList.stream()
+                .filter(m -> !MenuTypeEnum.BUTTON.equals(m.getType()))
+                .collect(Collectors.toList());
+
+        // 构建路由树
+        TreeField treeField = MenuResp.class.getDeclaredAnnotation(TreeField.class);
+        TreeNodeConfig treeNodeConfig = crudProperties.getTree().genTreeNodeConfig(treeField);
+        List<Tree<Long>> treeList = TreeUtil.build(menuList, treeField.rootId(), treeNodeConfig, (m, tree) -> {
+            tree.setId(m.getId());
+            tree.setParentId(m.getParentId());
+            tree.setName(m.getTitle());
+            tree.setWeight(m.getSort());
+            tree.putExtra("type", m.getType().getValue());
+            tree.putExtra("path", m.getPath());
+            tree.putExtra("name", m.getName());
+            tree.putExtra("component", m.getComponent());
+            tree.putExtra("redirect", m.getRedirect());
+            tree.putExtra("icon", m.getIcon());
+            tree.putExtra("isExternal", m.getIsExternal());
+            tree.putExtra("isCache", m.getIsCache());
+            tree.putExtra("isHidden", m.getIsHidden());
+            tree.putExtra("permission", m.getPermission());
+        });
+
+        return BeanUtil.copyToList(treeList, RouteResp.class);
     }
 }

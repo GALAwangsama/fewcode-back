@@ -17,9 +17,9 @@ package top.fewcode.admin.open.model.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.continew.starter.extension.crud.model.entity.BaseDO;
 import top.continew.starter.security.crypto.annotation.FieldEncrypt;
+import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 
 import java.io.Serial;
 import java.time.LocalDateTime;

@@ -18,8 +18,8 @@ package top.fewcode.admin.common.config.mybatis;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
-import top.fewcode.admin.common.context.UserContextHolder;
 import top.continew.starter.extension.crud.model.entity.BaseDO;
+import top.fewcode.admin.common.context.UserContextHolder;
 
 import java.time.LocalDateTime;
 

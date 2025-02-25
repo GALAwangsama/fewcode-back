@@ -105,7 +105,9 @@ springdoc:
     - group: index
       display-name: 前台系统认证
       packages-to-scan: ${project.base-package}.controller.index
-
+    - group: app
+      display-name: 小程序系统认证
+      packages-to-scan: ${project.base-package}.controller.app
 
 
   ## 组件配置
@@ -226,7 +228,8 @@ auth:
 
       - /index/user/info
       - /index/logout
-
+      - /auth/route
+      - /system/user/password
 --- ### 服务器配置
 server:
   servlet:

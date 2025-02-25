@@ -27,7 +27,7 @@ import top.continew.starter.cache.redisson.util.RedisUtils;
 import top.continew.starter.core.util.ExceptionUtils;
 import top.continew.starter.core.validation.ValidationUtils;
 import top.fewcode.admin.common.constant.CacheConstants;
-import top.fewcode.admin.common.context.IndexUserContextHolder;
+import top.fewcode.admin.common.context.UserContextHolder;
 import top.fewcode.admin.common.util.SecureUtils;
 import top.fewcode.admin.indexSystem.model.req.user.IndexUserBasicInfoUpdateReq;
 import top.fewcode.admin.indexSystem.model.req.user.IndexUserEmailUpdateRequest;
@@ -60,14 +60,14 @@ public class IndexUserCenterController {
     @PostMapping("/avatar")
     public AvatarResp updateAvatar(@NotNull(message = "头像不能为空") MultipartFile avatarFile) throws IOException {
         ValidationUtils.throwIf(avatarFile::isEmpty, "头像不能为空");
-        String newAvatar = userService.updateAvatar(avatarFile, IndexUserContextHolder.getUserId());
+        String newAvatar = userService.updateAvatar(avatarFile, UserContextHolder.getUserId());
         return AvatarResp.builder().avatar(newAvatar).build();
     }
 
     @Operation(summary = "修改基础信息", description = "修改用户基础信息")
     @PatchMapping("/basic/info")
     public void updateBasicInfo(@Validated @RequestBody IndexUserBasicInfoUpdateReq req) {
-        userService.updateBasicInfo(req, IndexUserContextHolder.getUserId());
+        userService.updateBasicInfo(req, UserContextHolder.getUserId());
     }
 
     @Operation(summary = "修改密码", description = "修改用户登录密码")
@@ -79,7 +79,7 @@ public class IndexUserCenterController {
         String rawNewPassword = ExceptionUtils.exToNull(() -> SecureUtils.decryptByRsaPrivateKey(updateReq
                 .getNewPassword()));
         ValidationUtils.throwIfNull(rawNewPassword, "新密码解密失败");
-        userService.updatePassword(rawOldPassword, rawNewPassword, IndexUserContextHolder.getUserId());
+        userService.updatePassword(rawOldPassword, rawNewPassword, UserContextHolder.getUserId());
     }
 
     @Operation(summary = "修改手机号", description = "修改手机号")
@@ -93,7 +93,7 @@ public class IndexUserCenterController {
         ValidationUtils.throwIfBlank(captcha, CAPTCHA_EXPIRED);
         ValidationUtils.throwIfNotEqualIgnoreCase(updateReq.getCaptcha(), captcha, "验证码错误");
         RedisUtils.delete(captchaKey);
-        userService.updatePhone(updateReq.getPhone(), rawOldPassword, IndexUserContextHolder.getUserId());
+        userService.updatePhone(updateReq.getPhone(), rawOldPassword, UserContextHolder.getUserId());
     }
 
     @Operation(summary = "修改邮箱", description = "修改用户邮箱")
@@ -107,7 +107,7 @@ public class IndexUserCenterController {
         ValidationUtils.throwIfBlank(captcha, CAPTCHA_EXPIRED);
         ValidationUtils.throwIfNotEqualIgnoreCase(updateReq.getCaptcha(), captcha, "验证码错误");
         RedisUtils.delete(captchaKey);
-        userService.updateEmail(updateReq.getEmail(), rawOldPassword, IndexUserContextHolder.getUserId());
+        userService.updateEmail(updateReq.getEmail(), rawOldPassword, UserContextHolder.getUserId());
     }
 
 }

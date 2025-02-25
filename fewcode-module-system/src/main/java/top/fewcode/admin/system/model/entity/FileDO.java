@@ -20,11 +20,11 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.SneakyThrows;
 import org.dromara.x.file.storage.core.FileInfo;
-import top.fewcode.admin.system.enums.FileTypeEnum;
-import top.fewcode.admin.system.enums.StorageTypeEnum;
 import top.continew.starter.core.constant.StringConstants;
 import top.continew.starter.core.util.StrUtils;
 import top.continew.starter.extension.crud.model.entity.BaseDO;
+import top.fewcode.admin.system.enums.FileTypeEnum;
+import top.fewcode.admin.system.enums.StorageTypeEnum;
 
 import java.io.Serial;
 import java.net.URL;

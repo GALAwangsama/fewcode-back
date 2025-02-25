@@ -19,12 +19,12 @@ import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import top.fewcode.admin.common.config.mybatis.BCryptEncryptor;
-import top.fewcode.admin.common.enums.DisEnableStatusEnum;
-import top.fewcode.admin.common.enums.GenderEnum;
 import top.continew.starter.extension.crud.annotation.DictField;
 import top.continew.starter.extension.crud.model.entity.BaseDO;
 import top.continew.starter.security.crypto.annotation.FieldEncrypt;
+import top.fewcode.admin.common.config.mybatis.BCryptEncryptor;
+import top.fewcode.admin.common.enums.DisEnableStatusEnum;
+import top.fewcode.admin.common.enums.GenderEnum;
 
 import java.io.Serial;
 import java.time.LocalDateTime;

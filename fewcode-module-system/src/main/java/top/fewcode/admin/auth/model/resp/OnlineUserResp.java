@@ -15,7 +15,10 @@
  */
 package top.fewcode.admin.auth.model.resp;
 
-import cn.crane4j.annotation.*;
+import cn.crane4j.annotation.Assemble;
+import cn.crane4j.annotation.AssembleMethod;
+import cn.crane4j.annotation.ContainerMethod;
+import cn.crane4j.annotation.MappingType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import top.fewcode.admin.auth.service.OnlineUserService;

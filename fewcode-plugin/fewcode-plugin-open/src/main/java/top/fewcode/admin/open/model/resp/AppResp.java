@@ -17,8 +17,8 @@ package top.fewcode.admin.open.model.resp;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.continew.starter.extension.crud.model.resp.BaseDetailResp;
+import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 
 import java.io.Serial;
 import java.time.LocalDateTime;

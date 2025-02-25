@@ -22,9 +22,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
-import top.fewcode.admin.common.constant.RegexConstants;
 import top.continew.starter.extension.crud.model.req.BaseReq;
 import top.continew.starter.extension.crud.validation.CrudValidationGroup;
+import top.fewcode.admin.common.constant.RegexConstants;
 
 import java.io.Serial;
 

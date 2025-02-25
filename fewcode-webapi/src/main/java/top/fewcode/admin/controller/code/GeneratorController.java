@@ -24,15 +24,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import top.continew.starter.extension.crud.model.query.PageQuery;
+import top.continew.starter.extension.crud.model.resp.LabelValueResp;
+import top.continew.starter.extension.crud.model.resp.PageResp;
 import top.fewcode.admin.generator.model.entity.FieldConfigDO;
 import top.fewcode.admin.generator.model.entity.GenConfigDO;
 import top.fewcode.admin.generator.model.query.GenConfigQuery;
 import top.fewcode.admin.generator.model.req.GenConfigReq;
 import top.fewcode.admin.generator.model.resp.GeneratePreviewResp;
 import top.fewcode.admin.generator.service.GeneratorService;
-import top.continew.starter.extension.crud.model.query.PageQuery;
-import top.continew.starter.extension.crud.model.resp.LabelValueResp;
-import top.continew.starter.extension.crud.model.resp.PageResp;
 import top.fewcode.admin.system.service.DictService;
 
 import java.sql.SQLException;

@@ -14,8 +14,12 @@
 </template>
 
 <script setup lang="ts">
-import { useWindowSize } from '@vueuse/core'
-import { type ${classNamePrefix}DetailResp, get${classNamePrefix} as getDetail } from '@/apis/${apiModuleName}/${apiName}'
+  import {useWindowSize} from '@vueuse/core'
+  import {
+        type
+        ${classNamePrefix}DetailResp,
+        get${classNamePrefix} as getDetail
+    } from '@/apis/${apiModuleName}/${apiName}'
 
 const { width } = useWindowSize()
 

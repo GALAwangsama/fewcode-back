@@ -63,8 +63,8 @@ import top.continew.starter.extension.crud.service.BaseServiceImpl;
 import top.continew.starter.web.util.FileUploadUtils;
 import top.fewcode.admin.auth.service.OnlineUserService;
 import top.fewcode.admin.common.constant.CacheConstants;
-import top.fewcode.admin.common.context.IndexUserContext;
-import top.fewcode.admin.common.context.IndexUserContextHolder;
+import top.fewcode.admin.common.context.UserContext;
+import top.fewcode.admin.common.context.UserContextHolder;
 import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.fewcode.admin.common.enums.GenderEnum;
 import top.fewcode.admin.common.util.SecureUtils;
@@ -146,7 +146,7 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
         String phone = req.getPhone();
         CheckUtils.throwIf(StrUtil.isNotBlank(phone) && this.isPhoneExists(phone, id), errorMsgTemplate, phone);
         DisEnableStatusEnum newStatus = req.getStatus();
-        CheckUtils.throwIf(DisEnableStatusEnum.DISABLE.equals(newStatus) && ObjectUtil.equal(id, IndexUserContextHolder
+        CheckUtils.throwIf(DisEnableStatusEnum.DISABLE.equals(newStatus) && ObjectUtil.equal(id, UserContextHolder
             .getUserId()), "不允许禁用当前用户");
 
         // 更新信息
@@ -166,7 +166,7 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
     @Transactional(rollbackFor = Exception.class)
     @CacheInvalidate(key = "#ids", name = CacheConstants.USER_KEY_PREFIX, multi = true)
     public void delete(List<Long> ids) {
-        CheckUtils.throwIf(CollUtil.contains(ids, IndexUserContextHolder.getUserId()), "不允许删除当前用户");
+        CheckUtils.throwIf(CollUtil.contains(ids, UserContextHolder.getUserId()), "不允许删除当前用户");
 
         // 删除历史密码
         userPasswordHistoryService.deleteByUserIds(ids);
@@ -656,11 +656,11 @@ public class IndexUserServiceImpl extends BaseServiceImpl<IndexUserMapper, Index
      * @param id ID
      */
     private void updateContext(Long id) {
-        IndexUserContext userContext = IndexUserContextHolder.getContext(id);
+        UserContext userContext = UserContextHolder.getContext(id);
         if (null != userContext) {
 //            userContext.setRoles(roleService.listByUserId(id));
 //            userContext.setPermissions(roleService.listPermissionByUserId(id));
-            IndexUserContextHolder.setContext(userContext);
+            UserContextHolder.setContext(userContext);
         }
     }
 }

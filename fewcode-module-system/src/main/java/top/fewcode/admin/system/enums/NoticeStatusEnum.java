@@ -17,8 +17,8 @@ package top.fewcode.admin.system.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import top.fewcode.admin.common.constant.UiConstants;
 import top.continew.starter.core.enums.BaseEnum;
+import top.fewcode.admin.common.constant.UiConstants;
 
 import java.time.LocalDateTime;
 

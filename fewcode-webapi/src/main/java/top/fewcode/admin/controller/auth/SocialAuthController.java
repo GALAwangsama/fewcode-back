@@ -29,12 +29,12 @@ import me.zhyd.oauth.model.AuthUser;
 import me.zhyd.oauth.request.AuthRequest;
 import me.zhyd.oauth.utils.AuthStateUtils;
 import org.springframework.web.bind.annotation.*;
-import top.fewcode.admin.auth.model.resp.LoginResp;
-import top.fewcode.admin.auth.model.resp.SocialAuthAuthorizeResp;
-import top.fewcode.admin.auth.service.LoginService;
 import top.continew.starter.core.exception.BadRequestException;
 import top.continew.starter.core.validation.ValidationUtils;
 import top.continew.starter.log.core.annotation.Log;
+import top.fewcode.admin.auth.model.resp.LoginResp;
+import top.fewcode.admin.auth.model.resp.SocialAuthAuthorizeResp;
+import top.fewcode.admin.auth.service.LoginService;
 
 /**
  * 三方账号认证 API

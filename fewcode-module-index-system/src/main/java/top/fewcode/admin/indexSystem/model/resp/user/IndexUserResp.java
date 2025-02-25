@@ -22,7 +22,7 @@ import top.continew.starter.extension.crud.model.resp.BaseDetailResp;
 import top.continew.starter.security.mask.annotation.JsonMask;
 import top.continew.starter.security.mask.enums.MaskType;
 import top.fewcode.admin.common.constant.ContainerConstants;
-import top.fewcode.admin.common.context.IndexUserContextHolder;
+import top.fewcode.admin.common.context.UserContextHolder;
 import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.fewcode.admin.common.enums.GenderEnum;
 
@@ -98,6 +98,6 @@ public class IndexUserResp extends BaseDetailResp {
 
     @Override
     public Boolean getDisabled() {
-        return Objects.equals(this.getId(), IndexUserContextHolder.getUserId());
+        return Objects.equals(this.getId(), UserContextHolder.getUserId());
     }
 }

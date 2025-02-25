@@ -15,13 +15,13 @@
  */
 package top.fewcode.admin.open.service;
 
+import top.continew.starter.extension.crud.service.BaseService;
 import top.fewcode.admin.open.model.entity.AppDO;
 import top.fewcode.admin.open.model.query.AppQuery;
 import top.fewcode.admin.open.model.req.AppReq;
 import top.fewcode.admin.open.model.resp.AppDetailResp;
 import top.fewcode.admin.open.model.resp.AppResp;
 import top.fewcode.admin.open.model.resp.AppSecretResp;
-import top.continew.starter.extension.crud.service.BaseService;
 
 /**
  * 应用业务接口

@@ -23,12 +23,12 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import top.continew.starter.core.validation.ValidationUtils;
 import top.fewcode.admin.common.constant.RegexConstants;
 import top.fewcode.admin.common.constant.SysConstants;
 import top.fewcode.admin.system.model.entity.UserDO;
 import top.fewcode.admin.system.service.OptionService;
 import top.fewcode.admin.system.service.UserPasswordHistoryService;
-import top.continew.starter.core.validation.ValidationUtils;
 
 import java.util.Map;
 

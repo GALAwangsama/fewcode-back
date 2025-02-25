@@ -15,8 +15,8 @@
  */
 package top.fewcode.admin.generator.mapper;
 
-import top.fewcode.admin.generator.model.entity.GenConfigDO;
 import top.continew.starter.data.mp.base.BaseMapper;
+import top.fewcode.admin.generator.model.entity.GenConfigDO;
 
 /**
  * 生成配置 Mapper

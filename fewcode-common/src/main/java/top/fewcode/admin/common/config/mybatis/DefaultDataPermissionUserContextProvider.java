@@ -16,11 +16,11 @@
 package top.fewcode.admin.common.config.mybatis;
 
 import cn.hutool.core.convert.Convert;
-import top.fewcode.admin.common.context.UserContextHolder;
 import top.continew.starter.extension.datapermission.enums.DataScope;
 import top.continew.starter.extension.datapermission.filter.DataPermissionUserContextProvider;
 import top.continew.starter.extension.datapermission.model.RoleContext;
 import top.continew.starter.extension.datapermission.model.UserContext;
+import top.fewcode.admin.common.context.UserContextHolder;
 
 import java.util.stream.Collectors;
 

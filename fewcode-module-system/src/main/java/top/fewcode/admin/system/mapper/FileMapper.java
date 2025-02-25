@@ -16,9 +16,9 @@
 package top.fewcode.admin.system.mapper;
 
 import org.apache.ibatis.annotations.Select;
+import top.continew.starter.data.mp.base.BaseMapper;
 import top.fewcode.admin.system.model.entity.FileDO;
 import top.fewcode.admin.system.model.resp.FileStatisticsResp;
-import top.continew.starter.data.mp.base.BaseMapper;
 
 import java.util.List;
 

@@ -20,6 +20,8 @@ import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import top.continew.starter.core.constant.StringConstants;
+import top.continew.starter.extension.crud.service.BaseServiceImpl;
 import top.fewcode.admin.open.mapper.AppMapper;
 import top.fewcode.admin.open.model.entity.AppDO;
 import top.fewcode.admin.open.model.query.AppQuery;
@@ -28,8 +30,6 @@ import top.fewcode.admin.open.model.resp.AppDetailResp;
 import top.fewcode.admin.open.model.resp.AppResp;
 import top.fewcode.admin.open.model.resp.AppSecretResp;
 import top.fewcode.admin.open.service.AppService;
-import top.continew.starter.core.constant.StringConstants;
-import top.continew.starter.extension.crud.service.BaseServiceImpl;
 
 /**
  * 应用业务实现

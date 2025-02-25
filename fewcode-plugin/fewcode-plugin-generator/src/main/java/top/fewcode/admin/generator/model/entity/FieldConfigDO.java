@@ -27,9 +27,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import top.continew.starter.core.constant.StringConstants;
 import top.fewcode.admin.generator.enums.FormTypeEnum;
 import top.fewcode.admin.generator.enums.QueryTypeEnum;
-import top.continew.starter.core.constant.StringConstants;
 
 import java.io.Serial;
 import java.io.Serializable;

@@ -17,11 +17,11 @@ package top.fewcode.admin.controller.system;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.RestController;
-import top.fewcode.admin.common.base.BaseController;
 import top.continew.starter.core.validation.ValidationUtils;
 import top.continew.starter.extension.crud.annotation.CrudApi;
 import top.continew.starter.extension.crud.annotation.CrudRequestMapping;
 import top.continew.starter.extension.crud.enums.Api;
+import top.fewcode.admin.common.base.BaseController;
 import top.fewcode.admin.system.enums.NoticeScopeEnum;
 import top.fewcode.admin.system.model.query.NoticeQuery;
 import top.fewcode.admin.system.model.req.NoticeReq;

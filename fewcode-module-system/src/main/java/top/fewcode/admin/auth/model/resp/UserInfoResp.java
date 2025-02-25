@@ -18,9 +18,9 @@ package top.fewcode.admin.auth.model.resp;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import top.fewcode.admin.common.enums.GenderEnum;
 import top.continew.starter.security.mask.annotation.JsonMask;
 import top.continew.starter.security.mask.enums.MaskType;
+import top.fewcode.admin.common.enums.GenderEnum;
 
 import java.io.Serial;
 import java.io.Serializable;

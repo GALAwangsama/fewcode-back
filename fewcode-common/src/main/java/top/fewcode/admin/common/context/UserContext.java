@@ -85,6 +85,11 @@ public class UserContext implements Serializable {
         this.passwordExpirationDays = passwordExpirationDays;
     }
 
+
+    public UserContext(Integer passwordExpirationDays) {
+        this.passwordExpirationDays = passwordExpirationDays;
+    }
+
     public void setRoles(Set<RoleContext> roles) {
         this.roles = roles;
         this.roleCodes = roles.stream().map(RoleContext::getCode).collect(Collectors.toSet());

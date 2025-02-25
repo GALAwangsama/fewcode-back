@@ -17,10 +17,10 @@ package top.fewcode.admin.system.model.resp;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import top.fewcode.admin.common.enums.DisEnableStatusEnum;
-import top.fewcode.admin.system.enums.StorageTypeEnum;
 import top.continew.starter.extension.crud.model.resp.BaseDetailResp;
 import top.continew.starter.security.mask.annotation.JsonMask;
+import top.fewcode.admin.common.enums.DisEnableStatusEnum;
+import top.fewcode.admin.system.enums.StorageTypeEnum;
 
 import java.io.Serial;
 

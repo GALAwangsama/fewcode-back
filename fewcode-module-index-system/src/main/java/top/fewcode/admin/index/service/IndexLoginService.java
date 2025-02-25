@@ -16,6 +16,9 @@
 package top.fewcode.admin.index.service;
 
 import jakarta.servlet.http.HttpServletRequest;
+import top.fewcode.admin.auth.model.resp.RouteResp;
+
+import java.util.List;
 
 /**
  * 登录业务接口
@@ -51,4 +54,11 @@ public interface IndexLoginService {
      */
     String emailLogin(String email);
 
+    /**
+     * 构建路由树
+     *
+     * @param userId 用户 ID
+     * @return 路由树
+     */
+    List<RouteResp> buildRouteTree(Long userId);
 }

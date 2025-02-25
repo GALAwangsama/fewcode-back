@@ -18,10 +18,10 @@ package top.fewcode.admin.open.sign;
 import cn.dev33.satoken.sign.SaSignTemplate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import top.continew.starter.core.validation.ValidationUtils;
 import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.fewcode.admin.open.model.entity.AppDO;
 import top.fewcode.admin.open.service.AppService;
-import top.continew.starter.core.validation.ValidationUtils;
 
 import java.util.Map;
 

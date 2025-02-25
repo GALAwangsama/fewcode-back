@@ -21,12 +21,12 @@
         FROM sys_index_user as t1
     </sql>
 
-    <select id="selectUserPage" resultType="top.fewcode.admin.system.model.resp.user.UserDetailResp">
+    <select id="selectIndexUserPage" resultType="top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp">
         <include refid="selectUser" />
         ${ew.customSqlSegment}
     </select>
 
-    <select id="selectUserList" resultType="top.fewcode.admin.system.model.resp.user.UserDetailResp">
+    <select id="selectIndexUserList" resultType="top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp">
         <include refid="selectUser" />
         ${ew.customSqlSegment}
     </select>
@@ -48,8 +48,5 @@
             AND id != #{id}
         </if>
     </select>
-    <select id="selectIndexUserPage"
-            resultType="top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp"></select>
-    <select id="selectIndexUserList"
-            resultType="top.fewcode.admin.indexSystem.model.resp.user.IndexUserDetailResp"></select>
+
 </mapper>

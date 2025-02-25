@@ -19,9 +19,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import top.continew.starter.extension.crud.model.req.BaseReq;
 import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.fewcode.admin.system.enums.ImportPolicyEnum;
-import top.continew.starter.extension.crud.model.req.BaseReq;
 
 import java.io.Serial;
 

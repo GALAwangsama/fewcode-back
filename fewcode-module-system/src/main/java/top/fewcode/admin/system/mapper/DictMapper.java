@@ -15,8 +15,8 @@
  */
 package top.fewcode.admin.system.mapper;
 
-import top.fewcode.admin.system.model.entity.DictDO;
 import top.continew.starter.data.mp.base.BaseMapper;
+import top.fewcode.admin.system.model.entity.DictDO;
 
 /**
  * 字典 Mapper

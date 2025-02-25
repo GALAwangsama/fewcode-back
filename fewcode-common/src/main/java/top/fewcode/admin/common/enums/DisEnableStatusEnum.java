@@ -17,8 +17,8 @@ package top.fewcode.admin.common.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import top.fewcode.admin.common.constant.UiConstants;
 import top.continew.starter.core.enums.BaseEnum;
+import top.fewcode.admin.common.constant.UiConstants;
 
 /**
  * 启用/禁用状态枚举

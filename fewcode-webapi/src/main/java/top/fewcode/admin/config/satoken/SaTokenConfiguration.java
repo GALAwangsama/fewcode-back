@@ -27,13 +27,13 @@ import cn.dev33.satoken.stp.StpUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import top.fewcode.admin.common.context.UserContext;
-import top.fewcode.admin.common.context.UserContextHolder;
-import top.fewcode.admin.open.sign.OpenApiSignTemplate;
 import top.continew.starter.auth.satoken.autoconfigure.SaTokenExtensionProperties;
 import top.continew.starter.core.constant.StringConstants;
 import top.continew.starter.core.exception.BusinessException;
 import top.continew.starter.core.validation.CheckUtils;
+import top.fewcode.admin.common.context.UserContext;
+import top.fewcode.admin.common.context.UserContextHolder;
+import top.fewcode.admin.open.sign.OpenApiSignTemplate;
 
 import java.util.List;
 

@@ -17,8 +17,8 @@ package top.fewcode.admin.generator.mapper;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import top.fewcode.admin.generator.model.entity.FieldConfigDO;
 import top.continew.starter.data.mp.base.BaseMapper;
+import top.fewcode.admin.generator.model.entity.FieldConfigDO;
 
 import java.util.List;
 

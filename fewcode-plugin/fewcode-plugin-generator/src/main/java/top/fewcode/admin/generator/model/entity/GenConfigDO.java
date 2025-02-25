@@ -24,9 +24,9 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-import top.fewcode.admin.common.constant.RegexConstants;
 import top.continew.starter.core.constant.CharConstants;
 import top.continew.starter.core.util.StrUtils;
+import top.fewcode.admin.common.constant.RegexConstants;
 
 import java.io.Serial;
 import java.io.Serializable;

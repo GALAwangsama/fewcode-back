@@ -17,8 +17,8 @@ package top.fewcode.admin.system.model.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.continew.starter.extension.crud.model.entity.BaseDO;
+import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 
 import java.io.Serial;
 

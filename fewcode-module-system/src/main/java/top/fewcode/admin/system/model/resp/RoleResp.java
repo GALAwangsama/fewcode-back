@@ -17,8 +17,8 @@ package top.fewcode.admin.system.model.resp;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import top.fewcode.admin.common.enums.DataScopeEnum;
 import top.continew.starter.extension.crud.model.resp.BaseDetailResp;
+import top.fewcode.admin.common.enums.DataScopeEnum;
 
 import java.io.Serial;
 

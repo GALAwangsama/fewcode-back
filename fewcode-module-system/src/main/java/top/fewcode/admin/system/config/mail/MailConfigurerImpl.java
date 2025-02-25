@@ -19,11 +19,11 @@ import cn.hutool.core.map.MapUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import top.continew.starter.messaging.mail.core.MailConfig;
+import top.continew.starter.messaging.mail.core.MailConfigurer;
 import top.fewcode.admin.common.constant.SysConstants;
 import top.fewcode.admin.system.enums.OptionCategoryEnum;
 import top.fewcode.admin.system.service.OptionService;
-import top.continew.starter.messaging.mail.core.MailConfig;
-import top.continew.starter.messaging.mail.core.MailConfigurer;
 
 import java.util.Map;
 

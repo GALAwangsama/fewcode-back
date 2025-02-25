@@ -23,11 +23,11 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
+import top.continew.starter.extension.crud.model.req.BaseReq;
+import top.continew.starter.extension.crud.validation.CrudValidationGroup;
 import top.fewcode.admin.common.constant.RegexConstants;
 import top.fewcode.admin.common.enums.DisEnableStatusEnum;
 import top.fewcode.admin.common.enums.GenderEnum;
-import top.continew.starter.extension.crud.model.req.BaseReq;
-import top.continew.starter.extension.crud.validation.CrudValidationGroup;
 
 import java.io.Serial;
 import java.util.List;
