@@ -36,17 +36,24 @@ import java.util.Objects;
  * @since 2023/2/20 21:08
  */
 @Data
-@Schema(description = "前台用户信息")
+@Schema(description = "小程序用户信息")
 @Assemble(key = "id", prop = ":roleIds", sort = 0, container = ContainerConstants.USER_ROLE_ID_LIST)
 public class AppUserResp extends BaseDetailResp {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
+
+    /**
+     * 微信用户唯一标识
+     */
+    @Schema(description = "微信用户唯一标识", example = "o6_x0OXJ-lxJ98Kl-8X2j5X2j5X2j5X2")
+    private String openId;
+
     /**
      * 用户名
      */
-    @Schema(description = "前台用户名", example = "zhangsan")
+    @Schema(description = "小程序用户名", example = "zhangsan")
     private String username;
 
     /**

@@ -37,7 +37,7 @@ import java.io.Serial;
  */
 @Data
 @ExcelIgnoreUnannotated
-@Schema(description = "前台用户详情信息")
+@Schema(description = "小程序用户详情信息")
 @Assemble(key = "id", prop = ":roleIds", sort = 0, container = ContainerConstants.USER_ROLE_ID_LIST)
 public class AppUserDetailResp extends BaseDetailResp {
 
@@ -47,8 +47,8 @@ public class AppUserDetailResp extends BaseDetailResp {
     /**
      * 用户名
      */
-    @Schema(description = "前台用户名", example = "zhangsan")
-    @ExcelProperty(value = "前台用户名", order = 2)
+    @Schema(description = "小程序用户名", example = "zhangsan")
+    @ExcelProperty(value = "小程序用户名", order = 2)
     private String username;
 
     /**

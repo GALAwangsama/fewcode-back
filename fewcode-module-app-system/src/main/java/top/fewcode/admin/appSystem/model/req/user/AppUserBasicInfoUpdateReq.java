@@ -33,7 +33,7 @@ import java.io.Serializable;
  * @since 2023/1/7 23:08
  */
 @Data
-@Schema(description = "前台用户基础信息修改参数")
+@Schema(description = "小程序用户基础信息修改参数")
 public class AppUserBasicInfoUpdateReq implements Serializable {
 
     @Serial

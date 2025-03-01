@@ -32,7 +32,7 @@ import java.io.Serializable;
  * @since 2023/1/12 20:18
  */
 @Data
-@Schema(description = "前台用户邮箱修改参数")
+@Schema(description = "小程序用户邮箱修改参数")
 public class AppUserEmailUpdateRequest implements Serializable {
 
     @Serial

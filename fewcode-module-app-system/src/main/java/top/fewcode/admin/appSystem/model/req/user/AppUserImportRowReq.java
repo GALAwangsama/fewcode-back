@@ -35,7 +35,7 @@ import java.io.Serial;
  * @since 2024-6-17 16:42
  */
 @Data
-@Schema(description = "前台用户导入行数据")
+@Schema(description = "小程序用户导入行数据")
 public class AppUserImportRowReq extends BaseReq {
 
     @Serial

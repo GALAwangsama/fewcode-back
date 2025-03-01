@@ -34,7 +34,7 @@ import java.time.LocalDateTime;
  * @since 2022/12/29 20:15
  */
 @Data
-@Schema(description = "前台用户信息")
+@Schema(description = "小程序用户信息")
 public class AppUserInfoResp implements Serializable {
 
     @Serial
@@ -49,7 +49,7 @@ public class AppUserInfoResp implements Serializable {
     /**
      * 前台用户名
      */
-    @Schema(description = "前台用户名", example = "zhangsan")
+    @Schema(description = "小程序用户名", example = "zhangsan")
     private String username;
 
     /**
@@ -113,6 +113,13 @@ public class AppUserInfoResp implements Serializable {
      */
     @Schema(description = "注册日期", example = "2023-08-08")
     private LocalDate registrationDate;
+
+
+    /**
+     * 微信用户唯一标识
+     */
+    @Schema(description = "微信用户唯一标识", example = "o6_x0OXJ-lxJ98Kl-8X2j5X2j5X2j5X2")
+    private String openId;
 
     public LocalDate getRegistrationDate() {
         return createTime.toLocalDate();

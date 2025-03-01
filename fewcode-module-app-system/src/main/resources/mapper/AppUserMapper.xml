@@ -16,7 +16,8 @@
                phone,
                avatar,
                description,
-               status
+               status,
+               open_id
         FROM sys_app_user as t1
     </sql>
 

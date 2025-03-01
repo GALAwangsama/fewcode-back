@@ -35,11 +35,19 @@ public class AppAccountLoginReq implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+
     /**
-     * 前台用户名
+     * 微信用户唯一标识
      */
-    @Schema(description = "前台用户名", example = "zhangsan")
-    @NotBlank(message = "前台用户名不能为空")
+    @Schema(description = "微信用户唯一标识", example = "o6_x0OXJ-lxJ98Kl-8X2j5X2j5X2j5X2")
+    @NotBlank(message = "微信用户唯一标识不能为空")
+    private String openId;
+
+    /**
+     * 小程序用户名
+     */
+    @Schema(description = "小程序用户名", example = "zhangsan")
+    @NotBlank(message = "小程序用户名不能为空")
     private String username;
 
     /**

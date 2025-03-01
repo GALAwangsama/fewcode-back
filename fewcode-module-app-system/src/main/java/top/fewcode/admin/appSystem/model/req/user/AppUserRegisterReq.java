@@ -18,10 +18,18 @@ import top.fewcode.admin.common.enums.GenderEnum;
 @Data
 public class AppUserRegisterReq {
 
+
+    /**
+     * 微信用户唯一标识
+     */
+    @Schema(description = "微信用户唯一标识", example = "o6_x0OXJ-lxJ98Kl-8X2j5X2j5X2j5X2")
+    @NotBlank(message = "微信用户唯一标识不能为空")
+    private String openId;
+
     /**
      * 用户名
      */
-    @Schema(description = "前台用户名", example = "zhangsan")
+    @Schema(description = "小程序用户名", example = "zhangsan")
     @NotBlank(message = "用户名不能为空")
     @Pattern(regexp = RegexConstants.USERNAME, message = "用户名长度为 4-64 个字符，支持大小写字母、数字、下划线，以字母开头")
     private String username;

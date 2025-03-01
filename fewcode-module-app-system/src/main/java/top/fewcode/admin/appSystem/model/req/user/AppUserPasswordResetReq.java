@@ -29,7 +29,7 @@ import java.io.Serializable;
  * @since 2024/2/2 22:50
  */
 @Data
-@Schema(description = "前台用户密码重置参数")
+@Schema(description = "小程序用户密码重置参数")
 public class AppUserPasswordResetReq implements Serializable {
 
     @Serial

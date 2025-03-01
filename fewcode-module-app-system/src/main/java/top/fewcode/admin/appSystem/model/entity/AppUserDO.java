@@ -44,6 +44,11 @@ public class AppUserDO extends BaseDO {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 微信用户唯一id
+     */
+    private String openId;
+
+    /**
      * 用户名
      */
     private String username;

@@ -85,6 +85,7 @@ public class AppLoginController {
             RedisUtils.delete(captchaKey);
             ValidationUtils.throwIfNotEqualIgnoreCase(loginReq.getCaptcha(), captcha, CAPTCHA_ERROR);
         }
+
         // 用户登录
         String rawPassword = ExceptionUtils.exToNull(() -> SecureUtils.decryptByRsaPrivateKey(loginReq.getPassword()));
         ValidationUtils.throwIfBlank(rawPassword, "密码解密失败");

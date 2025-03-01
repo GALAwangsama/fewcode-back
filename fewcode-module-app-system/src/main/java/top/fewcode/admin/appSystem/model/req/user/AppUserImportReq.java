@@ -32,7 +32,7 @@ import java.io.Serial;
  * @since 2024-6-17 16:42
  */
 @Data
-@Schema(description = "前台用户导入参数")
+@Schema(description = "小程序用户导入参数")
 public class AppUserImportReq extends BaseReq {
 
     @Serial

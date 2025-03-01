@@ -34,11 +34,17 @@ import java.util.List;
  * @since 2023/2/20 21:01
  */
 @Data
-@Schema(description = "前台用户查询条件")
+@Schema(description = "小程序用户查询条件")
 public class AppUserQuery implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
+
+    /**
+     * openId
+     */
+    @Schema(description = "openId", example = "o6_x0OXJ-lxJ98Kl-8X2j5X2j5X2j5X2")
+    private String openId;
 
     /**
      * 关键词
@@ -63,6 +69,6 @@ public class AppUserQuery implements Serializable {
     /**
      * 前台用户 ID 列表
      */
-    @Schema(description = "前台用户 ID 列表", example = "[1,2,3]")
+    @Schema(description = "小程序用户 ID 列表", example = "[1,2,3]")
     private List<Long> userIds;
 }
