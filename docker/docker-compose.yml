@@ -40,10 +40,10 @@ services:
       - '20083:7789'
     environment:
       TZ: Asia/Shanghai
-  fewcode-admin-server:
-    build: ./fewcode-admin
+  fewcode-backend-server:
+    build: ./fewcode-backend
     restart: always
-    container_name: fewcode-admin-server
+    container_name: fewcode-backend-server
     ports:
       - '20080:20080'
 
@@ -61,11 +61,11 @@ services:
 
 
     volumes:
-#      - /docker/fewcode-admin/config/:/app/config/
-#      - /docker/fewcode-admin/data/file/:/app/data/file/
-#      - /docker/fewcode-admin/logs/:/app/logs/
-#      - /docker/fewcode-admin/lib/:/app/lib/
-      - /docker/fewcode-admin/bin/fewcode-admin.jar:/app/bin/fewcode-admin.jar
+      #      - /docker/fewcode-backend/config/:/app/config/
+      #      - /docker/fewcode-backend/data/file/:/app/data/file/
+      #      - /docker/fewcode-backend/logs/:/app/logs/
+      #      - /docker/fewcode-backend/lib/:/app/lib/
+      - /docker/fewcode-backend/bin/fewcode-backend.jar:/app/bin/fewcode-backend.jar
 
     depends_on:
       - redis

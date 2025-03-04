@@ -122,7 +122,7 @@ FewCode (FC) 开发模板 开箱即用的前后端分离中后台管理系统，
 # 4.部署
 # 4.1 Docker 部署
 #   4.1.1 服务器安装好 docker 及 docker-compose（参考：https://blog.charles7c.top/categories/fragments/2022/10/31/CentOS%E5%AE%89%E8%A3%85Docker）
-#   4.1.2 执行 mvn package 进行项目打包，将 target/app 目录下的所有内容放到 /docker/fewcode-admin 目录下
+#   4.1.2 执行 mvn package 进行项目打包，将 target/app 目录下的所有内容放到 /docker/fewcode-backend 目录下
 #   4.1.3 将 docker 目录上传到服务器 / 目录下，并授权（chmod -R 777 /docker）
 #   4.1.4 修改 docker-compose.yml 中的 MySQL 配置、Redis 配置、continew-admin-server 配置、Nginx 配置
 #   4.1.5 执行 docker-compose up -d 创建并后台运行所有容器
@@ -135,7 +135,7 @@ FewCode (FC) 开发模板 开箱即用的前后端分离中后台管理系统，
 > 后端采用按功能拆分模块的开发方式，下方项目目录结构是按照模块的层次顺序进行介绍的。
 
 ```
-fewcode-admin
+fewcode-backend
 ├─ fewcode-webapi（API 及打包部署模块）
 │  ├─ src
 │  │  ├─ main

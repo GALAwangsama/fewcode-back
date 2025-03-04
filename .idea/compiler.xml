@@ -22,7 +22,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="fewcode-admin" options="-parameters" />
+      <module name="fewcode-backend" options="-parameters" />
       <module name="fewcode-common" options="-parameters" />
       <module name="fewcode-module-app-system" options="-parameters" />
       <module name="fewcode-module-index-system" options="-parameters" />

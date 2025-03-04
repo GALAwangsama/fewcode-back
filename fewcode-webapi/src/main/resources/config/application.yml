@@ -1,9 +1,9 @@
 --- ### 项目配置
 project:
   # 名称
-  name: FewCode Admin
+  name: FewCode Backend
   # 应用名称
-  app-name: fewcode-admin
+  app-name: fewcode-backend
   # 版本
   version: 3.4.1
   # 描述

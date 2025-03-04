@@ -17,7 +17,7 @@
     </parent>
 
     <groupId>top.fewcode</groupId>
-    <artifactId>fewcode-admin</artifactId>
+    <artifactId>fewcode-backend</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
     <description>fewcode开发模板，持续迭代优化的前后端分离中后台管理系统框架，开箱即用，持续提供舒适的开发体验。</description>
